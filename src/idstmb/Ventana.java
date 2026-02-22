@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -83,18 +84,15 @@ public class Ventana extends JFrame {
 		contraseñaT.setFont(new  Font("Arial",Font.ITALIC,15));
 		contenedor.add(contraseñaT);
 																	
-
 		/*REMEMEBER ME*/
 		//Boton
-		JButton recuerdame= new JButton();
+		JCheckBox recuerdame=new JCheckBox();
 		recuerdame.setSize(18, 18);
 		recuerdame.setLocation(20,300);
-		recuerdame.setFont(new  Font("Arial",Font.BOLD,16));
-		recuerdame.setBorder(new LineBorder(Color.BLACK, 2, false));
 		contenedor.add(recuerdame);
-		//Texto
+		//texto
 		JLabel recuerdameT = new JLabel();
-		recuerdameT.setText("Recordarme");
+		recuerdameT.setText("Recuerdame");
 		recuerdameT.setSize(100, 15);
 		recuerdameT.setOpaque(true);
 		recuerdameT.setBackground(null);
@@ -102,15 +100,16 @@ public class Ventana extends JFrame {
 		recuerdameT.setLocation(44, 301);
 		recuerdameT.setFont(new  Font("Arial",Font.ITALIC,13));
 		contenedor.add(recuerdameT);
+
 		
 		/*Boton de acceder*/
 		JButton acceder= new JButton();
 		JTextField borde= new JTextField();
 		acceder.setText("Aceptar");
 		acceder.setSize(120, 90);
-		acceder.setLocation(250,370);
+		acceder.setLocation(240,370);
 		acceder.setFont(new  Font("Arial",Font.ROMAN_BASELINE,16));
-		acceder.setBorder(new LineBorder(Color.gray, 10, false));
+		acceder.setBorder(new LineBorder(Color.WHITE, 6, false));
 		contenedor.add(acceder);
 		
 		/*CONTRASEÑA OLVIDADA*/
@@ -124,32 +123,9 @@ public class Ventana extends JFrame {
 		contraseñaOlvidada.setFont(new  Font("Arial",Font.ITALIC,13));
 		contenedor.add(contraseñaOlvidada);
 		
-		
 		contenedor.repaint();
 		contenedor.revalidate();
-		
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			
+	}	
 
 }
