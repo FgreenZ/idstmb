@@ -22,7 +22,7 @@ public class Ventana extends JFrame {
 		this.setBackground(Color.WHITE);
 		this.setMinimumSize(new Dimension(500,500));
 		this.setMaximumSize(new Dimension(600,600));
-		this.setTitle("Hola");
+		this.setTitle("Inicio de sesion");
 		this.setLocation(100,100);
 		this.setLayout(null);
 		
