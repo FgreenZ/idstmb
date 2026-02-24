@@ -15,9 +15,9 @@ import javax.swing.border.LineBorder;
 public class Ventana extends JFrame {
 
 	public Ventana() {
-
+		
 		this.setVisible(true);
-		this.setSize(600,600);
+		this.setSize(1200, 600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -101,7 +101,6 @@ public class Ventana extends JFrame {
 		recuerdameT.setFont(new  Font("Arial",Font.ITALIC,13));
 		contenedor.add(recuerdameT);
 
-		
 		/*Boton de acceder*/
 		JButton acceder= new JButton();
 		JTextField borde= new JTextField();
@@ -125,6 +124,81 @@ public class Ventana extends JFrame {
 		
 		contenedor.repaint();
 		contenedor.revalidate();
+		
+		//contenedor de registro
+		JPanel register_conteneiner = new JPanel();
+		register_conteneiner.setOpaque(true);
+		register_conteneiner.setBackground(Color.BLUE);
+		register_conteneiner.setSize(600,600);
+		register_conteneiner.setLocation(600,0);
+		register_conteneiner.setLayout(null);
+		this.add(register_conteneiner);
+		
+	
+		JLabel bio_tag=new JLabel("Biografia");
+		bio_tag.setBounds(100,100,250,40);
+		bio_tag.setBackground(Color.white);
+		bio_tag.setHorizontalAlignment(JLabel.CENTER);
+		bio_tag.setOpaque(true);
+		bio_tag.setFont(new  Font("Arial",Font.ITALIC,22));
+		register_conteneiner.add(bio_tag);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		contenedor.repaint();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 			
 	}	
 
