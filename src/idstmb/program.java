@@ -10,5 +10,8 @@ public class program {
 		// TODO Auto-generated method stub
 		Ventana miventana=new Ventana();
 		
+		miventana.users();
+		
+		
 	}
 }

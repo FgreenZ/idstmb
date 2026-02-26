@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
@@ -19,9 +21,8 @@ import javax.swing.border.LineBorder;
 public class Ventana extends JFrame {
 
 	public Ventana() {
-		
 		this.setVisible(true);
-		this.setSize(1220, 640);
+		this.setSize(1200, 635);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -29,8 +30,12 @@ public class Ventana extends JFrame {
 		//this.setMaximumSize(new Dimension(1200,600));
 		this.setTitle("Inicio de sesion");
 		this.setLocation(100,100);
+		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setLayout(null);
 		
+	}
+		
+	public void login() {
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		contenedor.setBackground(Color.DARK_GRAY);
@@ -128,6 +133,11 @@ public class Ventana extends JFrame {
 		
 		contenedor.repaint();
 		contenedor.revalidate();
+	}
+	
+	public void registro() {
+
+		
 		
 		//contenedor de registro
 		JPanel register_conteneiner = new JPanel();
@@ -280,7 +290,7 @@ public class Ventana extends JFrame {
 		terminos.setBorder(new LineBorder(Color.BLACK, 2, true));
 		terminos.setLocation(50,400);
 		register_conteneiner.add(terminos);
-				
+		
 		ButtonGroup opciones = new ButtonGroup();
 		JRadioButton acepto =new JRadioButton();
 		acepto.setSize(90,16);
@@ -295,7 +305,6 @@ public class Ventana extends JFrame {
 		deniego.setBackground(Color.LIGHT_GRAY);
 		deniego.setLocation(360,430);
 		
-		
 		opciones.add(acepto);
 		opciones.add(deniego);
 		acepto.setSelected(true);
@@ -303,52 +312,96 @@ public class Ventana extends JFrame {
         register_conteneiner.add(acepto);
         register_conteneiner.add(deniego);
 
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		contenedor.repaint();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
-	}	
 
+        register_conteneiner.repaint();		
+	}	
+	
+	public void users() {
+		JPanel users =new JPanel();
+		users.setSize(1000,500);
+		users.setLocation(100,50);
+		users.setBackground(Color.WHITE);
+		users.setLayout(null);
+		users.setOpaque(true);
+		this.add(users);
+		
+		//titulo
+		JLabel users_title =new JLabel("USUARIOS");
+		users_title.setBounds(400,10,300,20);
+		users_title.setLayout(null);
+		users_title.setOpaque(true);
+		users_title.setBackground(null);
+		users_title.setFont(new  Font("Arial",Font.ITALIC,30));
+		users.add(users_title);
+		
+		/*BOTONES*/
+		JButton export =new JButton("Exportar");
+		export.setBounds(30,120,100,40);
+		users.add(export);
+		
+		JButton add =new JButton("Añadir");
+		add.setBounds(130,120,100,40);
+		users.add(add);
+		
+		
+		
+		/*TABLA*/
+		Object [] table_head= {"No.Control","Nombre(s)","Apellido(s)","Semestre","promedio","acciones"};
+		
+		Object [][] table_content = {
+			    {"2023001","Ana María","López Hernández","4","92.5","Editar"},
+			    {"2023002","Carlos","Ramírez Soto","6","88.3","Editar"},
+			    {"2023003","Fernanda","García Torres","2","95.0","Editar"},
+			    {"2023001","Ana María","López Hernández","4","92.5","Editar"},
+			    {"2023002","Carlos","Ramírez Soto","6","88.3","Editar"},
+			    {"2023003","Fernanda","García Torres","2","95.0","Editar"},
+			    {"2023001","Ana María","López Hernández","4","92.5","Editar"},
+			    {"2023002","Carlos","Ramírez Soto","6","88.3","Editar"},
+			    {"2023003","Fernanda","García Torres","2","95.0","Editar"},
+			    {"2023001","Ana María","López Hernández","4","92.5","Editar"},
+			    {"2023002","Carlos","Ramírez Soto","6","88.3","Editar"},
+			    {"2023003","Fernanda","García Torres","2","95.0","Editar"},
+			    {"2023001","Ana María","López Hernández","4","92.5","Editar"},
+			    {"2023002","Carlos","Ramírez Soto","6","88.3","Editar"},
+			    {"2023003","Fernanda","García Torres","2","95.0","Editar"},
+			    {"2023004","José Luis","Martínez Díaz","8","81.7","Editar"}
+			};
+
+		JTable users_table =new JTable(table_content,table_head);
+		
+		users_table.setSize(800,400);
+		users_table.setLocation(30,200);
+		users_table.setBorder(null);
+		users.add(users_table);
+		
+		JScrollPane scrollPane =new JScrollPane(users_table);
+		scrollPane.setLocation(30,200);
+		scrollPane.setSize(800,100);
+		users.add(scrollPane);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		users.repaint();
+	}
 }
