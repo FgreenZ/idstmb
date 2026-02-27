@@ -11,6 +11,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -22,7 +25,6 @@ import javax.swing.border.LineBorder;
 public class Ventana extends JFrame {
 
 	public Ventana() {
-		this.setVisible(true);
 		this.setSize(1200, 635);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
@@ -33,6 +35,35 @@ public class Ventana extends JFrame {
 		this.setLocation(100,100);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setLayout(null);
+		
+		/*MENU*/
+		JMenuBar menu =new JMenuBar();
+		JMenu archivo =new JMenu("Archivo");
+		JMenuItem item =new JMenuItem("abrir");
+		JMenuItem item1 =new JMenuItem("cerrar");
+		JMenuItem item2 =new JMenuItem("Guardar");
+		JMenuItem item3 =new JMenuItem("eliminar ");
+		JMenuItem item4 =new JMenuItem("nuevo");
+		
+		archivo.addSeparator();
+		
+		JMenu submenu =new JMenu("Otro");
+		JMenuItem item6 =new JMenuItem("quejas");
+		JMenuItem item7 =new JMenuItem("contactanos");
+		submenu.add(item6);
+		submenu.add(item7);
+
+		archivo.add(item);
+		archivo.add(item1);
+		archivo.add(item2);
+		archivo.add(item3);
+		archivo.add(item4);
+		archivo.add(submenu);
+		
+		menu.add(archivo);
+		this.setVisible(true);
+		this.setJMenuBar(menu);
+		this.add(menu);
 		
 	}
 		
@@ -332,7 +363,7 @@ public class Ventana extends JFrame {
 		users_title.setLayout(null);
 		users_title.setOpaque(true);
 		users_title.setBackground(null);
-		users_title.setFont(new  Font("Arial",Font.ITALIC,30));
+		users_title.setFont(new  Font("Arial",Font.ITALIC,24));
 		users.add(users_title);
 		
 		/*BOTONES*/
@@ -369,14 +400,13 @@ public class Ventana extends JFrame {
 		};
 
 		JTable users_table =new JTable(table_content,table_head);
-		
 		users_table.setSize(800,350);
 		users_table.setLocation(30,175);
 		users.add(users_table);
 		
 		JScrollPane scrollPane =new JScrollPane(users_table);
 		scrollPane.setLocation(30,175);
-		scrollPane.setSize(800,350);
+		scrollPane.setSize(800,200);
 		users.add(scrollPane);
 		
 		
@@ -404,8 +434,6 @@ public class Ventana extends JFrame {
 		
 		users.repaint();
 	}
-	
-	
 	
 	public void calculadora() {
 		JPanel contenedor = new JPanel();
