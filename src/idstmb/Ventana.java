@@ -1,5 +1,6 @@
 package idstmb;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -21,6 +22,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
+import javax.swing.ImageIcon;
 
 public class Ventana extends JFrame {
 
@@ -52,7 +54,7 @@ public class Ventana extends JFrame {
 		JMenuItem item7 =new JMenuItem("contactanos");
 		submenu.add(item6);
 		submenu.add(item7);
-
+		
 		archivo.add(item);
 		archivo.add(item1);
 		archivo.add(item2);
@@ -71,10 +73,35 @@ public class Ventana extends JFrame {
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		contenedor.setBackground(Color.DARK_GRAY);
-		contenedor.setSize(600,600);
-		contenedor.setLocation(0,0);
+		contenedor.setSize(600,554);
+		contenedor.setLocation(0,23);
 		contenedor.setLayout(null);
 		this.add(contenedor);
+		
+		JPanel contenedor2 = new JPanel();
+		contenedor2.setOpaque(true);
+		contenedor2.setBackground(Color.BLACK);
+		contenedor2.setSize(600,554);
+		contenedor2.setLocation(600,23);
+		contenedor2.setLayout(null);
+		this.add(contenedor2);
+		
+		JLabel icono =new JLabel(new ImageIcon("icon.PNG"));
+		icono.setBounds(100, 102, 350, 180);
+		contenedor2.add(icono);
+		
+		JLabel CODEX = new JLabel();
+		CODEX.setText("< CodeX >");
+		CODEX.setSize(200, 40);
+		CODEX.setOpaque(true);
+		CODEX.setBackground(null);
+		CODEX.setForeground(Color.RED);
+		CODEX.setLocation(180, 260);
+		CODEX.setFont(new  Font("Arial",Font.ITALIC,40));
+		contenedor2.add(CODEX);
+		
+		contenedor2.repaint();
+		contenedor2.revalidate();
 		
 		/*TITULO*/
 		JLabel title_login = new JLabel();
@@ -166,6 +193,16 @@ public class Ventana extends JFrame {
 		contenedor.repaint();
 		contenedor.revalidate();
 	}
+	
+		
+		
+		
+		
+		
+		
+	
+	
+	
 	
 	public void registro() {
 
