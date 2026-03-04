@@ -2,8 +2,11 @@ package idstmb;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -21,13 +24,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.ImageIcon;
 
 public class Ventana extends JFrame {
 
 	public Ventana() {
-		this.setSize(1200, 635);
+		
+		this.setSize(414, 537);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -62,10 +67,10 @@ public class Ventana extends JFrame {
 		archivo.add(item4);
 		archivo.add(submenu);
 		
-		menu.add(archivo);
+		//menu.add(archivo);
 		this.setVisible(true);
-		this.setJMenuBar(menu);
-		this.add(menu);
+		//this.setJMenuBar(menu);
+		//this.add(menu);
 		
 	}
 		
@@ -95,7 +100,7 @@ public class Ventana extends JFrame {
 		CODEX.setSize(200, 40);
 		CODEX.setOpaque(true);
 		CODEX.setBackground(null);
-		CODEX.setForeground(Color.RED);
+		CODEX.setForeground(Color.WHITE);
 		CODEX.setLocation(180, 260);
 		CODEX.setFont(new  Font("Arial",Font.ITALIC,40));
 		contenedor2.add(CODEX);
@@ -110,8 +115,8 @@ public class Ventana extends JFrame {
 		title_login.setOpaque(true);
 		title_login.setBackground(null);
 		title_login.setForeground(Color.WHITE);
-		title_login.setLocation(200, 60);
-		title_login.setFont(new  Font("Arial",Font.ROMAN_BASELINE,30));
+		title_login.setLocation(200, 62);
+		title_login.setFont(new  Font("Arial",Font.ITALIC,30));
 		contenedor.add(title_login);
 		
 		/*USERNAME*/
@@ -193,16 +198,6 @@ public class Ventana extends JFrame {
 		contenedor.repaint();
 		contenedor.revalidate();
 	}
-	
-		
-		
-		
-		
-		
-		
-	
-	
-	
 	
 	public void registro() {
 
@@ -483,17 +478,6 @@ public class Ventana extends JFrame {
 		 contenedor.setVisible(true);
 		 this.add(contenedor);
 		 
-		 JLabel console = new JLabel();
-		 console.setText(" 180105");
-		 console.setSize(300,50);
-		 console.setLocation(50,20);
-		 console.setOpaque(true);
-		 console.setBackground(Color.BLACK);
-		 console.setFont(new Font("Arial",Font.BOLD,15));
-		 console.setForeground(Color.WHITE);
-		 console.setHorizontalAlignment(JLabel.CENTER);
-		 console.setBorder(BorderFactory.createLineBorder(Color.white,1,true));
-		 contenedor.add(console);
 		 
 		JButton boton7 = new JButton("7");
 		boton7.setBounds(50,80,60,60);
@@ -656,6 +640,215 @@ public class Ventana extends JFrame {
 		contenedor.add(botonIgual);
 		
 		botonIgual.repaint();
+	}
+	
+	public void test()
+	{
+		JPanel test_panel = new JPanel();
+		test_panel.setSize(400, 500);
+		//test_panel.setLocation(100, 50);
+		test_panel.setBackground(Color.white);
+		test_panel.setLayout(new BorderLayout());
+		this.add(test_panel);
+		
+		/*
+		
+		
+		JLabel users_title = new JLabel("USUARIOS"); 
+		users_title.setFont(new Font("Arial",Font.BOLD,22));
+		users_title.setBackground(Color.decode("#F27A61"));
+		test_panel.add(users_title,BorderLayout.NORTH);
+		
+		JLabel users_title1 = new JLabel("USUARIOS"); 
+		users_title1.setFont(new Font("Arial",Font.BOLD,22));
+		users_title1.setBackground(Color.decode("#F27A61"));
+		test_panel.add(users_title1,BorderLayout.LINE_START);
+		
+		JLabel users_title3 = new JLabel("USUARIOS"); 
+		users_title3.setFont(new Font("Arial",Font.BOLD,22));
+		users_title3.setBackground(Color.decode("#F27A61"));
+		test_panel.add(users_title3,BorderLayout.LINE_END);
+		*/
+		
+		JPanel botones = new JPanel(); 
+		botones.setBackground(Color.decode("#2B024F"));
+		botones.setLayout(new GridLayout(5,3));
+		
+		//line1
+		JButton numero1 =new JButton("AC");
+		numero1.setBackground(Color.DARK_GRAY);
+		numero1.setForeground(Color.WHITE);
+		numero1.setBorder(new LineBorder(Color.RED, 2, true) );
+		botones.add(numero1);
+		
+		JButton numero2 =new JButton("()");
+		numero2.setBackground(Color.DARK_GRAY);
+		numero2.setForeground(Color.WHITE);
+		numero2.setBorder(new LineBorder(Color.RED, 2, true) );
+		botones.add(numero2);
+		
+		JButton numero3 =new JButton("%");
+		numero3.setBackground(Color.DARK_GRAY);
+		numero3.setForeground(Color.WHITE);
+		numero3.setBorder(new LineBorder(Color.RED, 2, true) );
+		botones.add(numero3);
+		
+		//line2
+		Color negro= Color.BLACK;
+		
+		JButton numero5 =new JButton("7");
+		numero5.setBackground(negro);
+		numero5.setForeground(Color.WHITE);
+		numero5.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero5.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero5);
+		
+		JButton numero6 =new JButton("8");
+		numero6.setBackground(negro);
+		numero6.setForeground(Color.WHITE);
+		numero6.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero6.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero6);
+		
+		JButton numero7 =new JButton("9");
+		numero7.setBackground(negro);
+		numero7.setForeground(Color.WHITE);
+		numero7.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero7.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero7);
+		
+		//line3
+		JButton numero8 =new JButton("4");
+		numero8.setBackground(negro);
+		numero8.setForeground(Color.WHITE);
+		numero8.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero8.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero8);
+		
+		JButton numero9 =new JButton("5");
+		numero9.setBackground(negro);
+		numero9.setForeground(Color.WHITE);
+		numero9.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero9.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero9);
+		
+		JButton numero10 =new JButton("6");
+		numero10.setBackground(negro);
+		numero10.setForeground(Color.WHITE);
+		numero10.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero10.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero10);
+		
+		//
+		JButton numero11 =new JButton("1");
+		numero11.setBackground(negro);
+		numero11.setForeground(Color.WHITE);
+		numero11.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero11.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero11);
+		
+		JButton numero12 =new JButton("2");
+		numero12.setBackground(negro);
+		numero12.setForeground(Color.WHITE);
+		numero12.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero12.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero12);
+		
+		JButton numero13 =new JButton("3");
+		numero13.setBackground(negro);
+		numero13.setForeground(Color.WHITE);
+		numero13.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero13.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero13);
+		
+		//
+		JButton numero14 =new JButton("0");
+		numero14.setBackground(negro);
+		numero14.setForeground(Color.WHITE);
+		numero14.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero14.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero14);
+		
+		JButton numero15 =new JButton(".");
+		numero15.setBackground(Color.gray);
+		numero15.setForeground(Color.WHITE);
+		numero15.setBorder(new LineBorder(Color.RED, 2, true) );
+		numero15.setFont(new Font("Arial",Font.ITALIC,30));
+		botones.add(numero15);
+		
+		JButton numero16 =new JButton("<-");
+		numero16.setBackground(Color.gray);
+		numero16.setForeground(Color.WHITE);
+		numero16.setBorder(new LineBorder(Color.RED, 2, true) );
+		botones.add(numero16);
+		
+		
+		test_panel.add(botones,BorderLayout.CENTER);
+		
+		JPanel operandos = new JPanel(); 
+		operandos.setBackground(Color.DARK_GRAY);
+		operandos.setLayout(new GridLayout(5,1));
+		
+		JButton a =new JButton("/");
+		a.setBackground(null);
+		a.setForeground(Color.WHITE);
+		a.setBorder(new LineBorder(Color.RED, 2, true) );
+		operandos.add(a);
+		
+		JButton b =new JButton("x");
+		b.setBackground(Color.gray);
+		b.setForeground(Color.WHITE);
+		b.setBorder(new LineBorder(Color.RED, 2, true) );
+		operandos.add(b);
+		
+		JButton c =new JButton("-");
+		c.setBackground(Color.gray);
+		c.setForeground(Color.WHITE);
+		c.setBorder(new LineBorder(Color.RED, 2, true) );
+		operandos.add(c);
+		
+		JButton d =new JButton("+");
+		d.setBackground(Color.gray);
+		d.setForeground(Color.WHITE);
+		d.setBorder(new LineBorder(Color.RED, 2, true) );
+		operandos.add(d);
+		
+		JButton e =new JButton("=");
+		e.setBackground(Color.gray);
+		e.setForeground(Color.WHITE);
+		e.setBorder(new LineBorder(Color.RED, 2, true) );
+		operandos.add(e);
+
+		operandos.setPreferredSize(new Dimension(100, 0));
+		test_panel.add(operandos,BorderLayout.LINE_END);
+
+		
+		
+		JTextField operaciones=new JTextField();
+		operaciones.setBackground(Color.decode("#BDD494"));
+		operaciones.setBorder(new LineBorder(Color.BLACK, 8, false));
+		operaciones.setPreferredSize(new Dimension(0, 80));
+		test_panel.add(operaciones,BorderLayout.NORTH);
+		/*
+		JPanel south_panel = new JPanel();  
+		south_panel.setBackground(Color.green);
+		south_panel.setLayout(new FlowLayout(5,10,10));
+		
+		south_panel.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+		
+		south_panel.add(new JButton("1"));
+		south_panel.add(new JButton("2"));
+		south_panel.add(new JButton("3"));
+		south_panel.add(new JButton("4"));
+		south_panel.add(new JButton("5"));
+		
+		//test_panel.add(south_panel,BorderLayout.SOUTH);
+		*/
+		this.repaint();
+		test_panel.repaint();
+		botones.repaint();
+		operandos.repaint();
+		//south_panel.repaint();
 	}
 	
 	
