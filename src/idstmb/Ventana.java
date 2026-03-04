@@ -642,7 +642,7 @@ public class Ventana extends JFrame {
 		botonIgual.repaint();
 	}
 	
-	public void test()
+	public void calculadoraGridlayoutBorderlayout()
 	{
 		JPanel test_panel = new JPanel();
 		test_panel.setSize(400, 500);
