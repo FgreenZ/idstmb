@@ -11,7 +11,7 @@ public class program {
 		Ventana miventana=new Ventana();
 		
 		
-		miventana.calculadoraGridlayoutBorderlayout();
+		miventana.interes();
 		
 		
 		

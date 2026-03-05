@@ -38,10 +38,10 @@ public class Ventana extends JFrame {
 		this.setBackground(Color.WHITE);
 		//this.setMinimumSize(new Dimension(1200,600));
 		//this.setMaximumSize(new Dimension(1200,600));
-		this.setTitle("Inicio de sesion");
+		this.setTitle("Calculadora");
 		this.setLocation(100,100);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
-		this.setLayout(null);
+		this.setLayout(new BorderLayout());
 		
 		/*MENU*/
 		JMenuBar menu =new JMenuBar();
@@ -71,7 +71,7 @@ public class Ventana extends JFrame {
 		this.setVisible(true);
 		//this.setJMenuBar(menu);
 		//this.add(menu);
-		
+		this.repaint();
 	}
 		
 	public void login() {
@@ -478,7 +478,6 @@ public class Ventana extends JFrame {
 		 contenedor.setVisible(true);
 		 this.add(contenedor);
 		 
-		 
 		JButton boton7 = new JButton("7");
 		boton7.setBounds(50,80,60,60);
 		boton7.setBackground(Color.BLACK);
@@ -825,6 +824,7 @@ public class Ventana extends JFrame {
 		
 		
 		JTextField operaciones=new JTextField();
+		operaciones.setFont(new Font("Arial",Font.ITALIC,30));
 		operaciones.setBackground(Color.decode("#BDD494"));
 		operaciones.setBorder(new LineBorder(Color.BLACK, 8, false));
 		operaciones.setPreferredSize(new Dimension(0, 80));
@@ -850,6 +850,71 @@ public class Ventana extends JFrame {
 		operandos.repaint();
 		//south_panel.repaint();
 	}
+	
+	public void interes() 
+	{
+		JPanel calculadora = new JPanel();
+		calculadora.setSize(320,420);
+		calculadora.setLocation(330,80);
+		calculadora.setBackground(new Color(230,230,230));
+		calculadora.setLayout(new BorderLayout(50,50));
+		this.add(calculadora);
+		
+		JLabel title = new JLabel("INTERES");
+		title.setFont(new Font("Arial",Font.BOLD,28));
+		title.setBackground(new Color(230,230,230));
+		calculadora.add(title,BorderLayout.NORTH);
+		
+		// panel botones
+		JPanel botones = new JPanel();
+		botones.setLayout(new GridLayout(0,2));
+
+		// fila 1
+		botones.add(new JLabel("capital"));
+		botones.add(new JTextField());
+		botones.add(new JLabel("tiempo"));
+		botones.add(new JTextField());
+		botones.add(new JLabel("tasa interes"));
+		botones.add(new JTextField());
+		botones.add(new JButton("calcular"));
+		botones.add(new JButton("cancelar"));
+
+		calculadora.add(botones,BorderLayout.CENTER);
+		
+		JPanel inferior = new JPanel();
+		inferior.setLayout(new GridLayout(0,2));
+		inferior.setBackground(new Color(230,230,230));
+
+		// fila 1
+		inferior.add(new JLabel("Interes:"));
+		inferior.add(new JTextField());
+		inferior.add(new JLabel("Monto:"));
+		inferior.add(new JTextField());
+		
+		calculadora.add(inferior,BorderLayout.SOUTH);
+		
+		calculadora.repaint();
+		calculadora.revalidate();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
