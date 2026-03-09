@@ -32,7 +32,7 @@ public class Ventana extends JFrame {
 
 	public Ventana() {
 		
-		this.setSize(414, 537);
+		this.setSize(400, 600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -42,7 +42,9 @@ public class Ventana extends JFrame {
 		this.setLocation(100,100);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);
 		this.setLayout(new BorderLayout());
-		
+        ImageIcon icono = new ImageIcon("icono.png");
+		this.setIconImage(icono.getImage());
+
 		/*MENU*/
 		JMenuBar menu =new JMenuBar();
 		JMenu archivo =new JMenu("Archivo");
@@ -201,7 +203,7 @@ public class Ventana extends JFrame {
 	
 	public void registro() {
 
-		
+	
 		
 		//contenedor de registro
 		JPanel register_conteneiner = new JPanel();
@@ -649,25 +651,7 @@ public class Ventana extends JFrame {
 		test_panel.setBackground(Color.white);
 		test_panel.setLayout(new BorderLayout());
 		this.add(test_panel);
-		
-		/*
-		
-		
-		JLabel users_title = new JLabel("USUARIOS"); 
-		users_title.setFont(new Font("Arial",Font.BOLD,22));
-		users_title.setBackground(Color.decode("#F27A61"));
-		test_panel.add(users_title,BorderLayout.NORTH);
-		
-		JLabel users_title1 = new JLabel("USUARIOS"); 
-		users_title1.setFont(new Font("Arial",Font.BOLD,22));
-		users_title1.setBackground(Color.decode("#F27A61"));
-		test_panel.add(users_title1,BorderLayout.LINE_START);
-		
-		JLabel users_title3 = new JLabel("USUARIOS"); 
-		users_title3.setFont(new Font("Arial",Font.BOLD,22));
-		users_title3.setBackground(Color.decode("#F27A61"));
-		test_panel.add(users_title3,BorderLayout.LINE_END);
-		*/
+	
 		
 		JPanel botones = new JPanel(); 
 		botones.setBackground(Color.decode("#2B024F"));
@@ -696,6 +680,7 @@ public class Ventana extends JFrame {
 		Color negro= Color.BLACK;
 		
 		JButton numero5 =new JButton("7");
+		numero5.setSize(9, 9);
 		numero5.setBackground(negro);
 		numero5.setForeground(Color.WHITE);
 		numero5.setBorder(new LineBorder(Color.RED, 2, true) );
@@ -848,6 +833,7 @@ public class Ventana extends JFrame {
 		test_panel.repaint();
 		botones.repaint();
 		operandos.repaint();
+		test_panel.revalidate();
 		//south_panel.repaint();
 	}
 	
@@ -857,7 +843,7 @@ public class Ventana extends JFrame {
 		calculadora.setSize(320,420);
 		calculadora.setLocation(330,80);
 		calculadora.setBackground(new Color(230,230,230));
-		calculadora.setLayout(new BorderLayout(50,50));
+		calculadora.setLayout(new BorderLayout());
 		this.add(calculadora);
 		
 		JLabel title = new JLabel("INTERES");
@@ -865,11 +851,11 @@ public class Ventana extends JFrame {
 		title.setBackground(new Color(230,230,230));
 		calculadora.add(title,BorderLayout.NORTH);
 		
-		// panel botones
+		
 		JPanel botones = new JPanel();
-		botones.setLayout(new GridLayout(0,2));
+		botones.setLayout(new GridLayout(4,2));
 
-		// fila 1
+		
 		botones.add(new JLabel("capital"));
 		botones.add(new JTextField());
 		botones.add(new JLabel("tiempo"));
@@ -882,10 +868,9 @@ public class Ventana extends JFrame {
 		calculadora.add(botones,BorderLayout.CENTER);
 		
 		JPanel inferior = new JPanel();
-		inferior.setLayout(new GridLayout(0,2));
-		inferior.setBackground(new Color(230,230,230));
+		inferior.setLayout(new GridLayout(2,2));
 
-		// fila 1
+		
 		inferior.add(new JLabel("Interes:"));
 		inferior.add(new JTextField());
 		inferior.add(new JLabel("Monto:"));
@@ -897,7 +882,120 @@ public class Ventana extends JFrame {
 		calculadora.revalidate();
 	}
 	
-	
+	public void interesIntento2() {
+		
+		JPanel calculadora = new JPanel();
+		calculadora.setBackground(Color.decode("#1E1F22"));
+		calculadora.setLayout(new BorderLayout());
+		this.add(calculadora);
+		
+		
+		
+		JLabel titulo =new JLabel("Calculadora de intereses");
+		titulo.setFont(new Font("Arial",Font.ITALIC,34));
+		titulo.setBackground(null);
+		titulo.setForeground(Color.WHITE);
+		calculadora.add(titulo,BorderLayout.NORTH);
+		
+		/* panel centrico */
+		JPanel elementos =new JPanel();
+		elementos.setBackground(Color.decode("#2F2F2F"));
+		elementos.setLayout(new GridLayout(3,2));
+		
+		
+		//elementos
+		JLabel Capital =new JLabel("Capital");
+		Capital.setFont(new Font("Arial",Font.BOLD,12));
+		Capital.setBackground(null);
+		Capital.setForeground(Color.decode("#1F872D"));
+		elementos.add(Capital);
+		JTextField CapitalT =new JTextField();
+		elementos.add(CapitalT);
+		
+		JLabel tiempo =new JLabel("tiempo");
+		tiempo.setFont(new Font("Arial",Font.BOLD,12));
+		tiempo.setBackground(null);
+		tiempo.setForeground(Color.decode("#1F872D"));
+		elementos.add(tiempo);
+		JTextField tiempoT =new JTextField();
+		elementos.add(tiempoT);
+		
+		JLabel tasa_de_interes =new JLabel("tasa de interes");
+		tasa_de_interes.setFont(new Font("Arial",Font.BOLD,12));
+		tasa_de_interes.setBackground(null);
+		tasa_de_interes.setForeground(Color.decode("#1F872D"));
+		elementos.add(tasa_de_interes);
+		JTextField tasa_de_interesT =new JTextField();
+		elementos.add(tasa_de_interesT);
+		
+		calculadora.add(elementos,BorderLayout.CENTER);
+		/* panel centrico */
+
+		
+		/*botones*/
+		JPanel panelsur = new JPanel();
+		panelsur.setBackground(Color.decode("#48484C"));
+		//panelsur.setBorder(BorderFactory.createLineBorder(Color.RED, 2));
+		panelsur.setLayout(new BorderLayout());
+		
+		JPanel botones = new JPanel();
+		botones.setBackground(Color.decode("#1E1F22"));
+		botones.setLayout(new FlowLayout());
+		
+		JButton calcular =new JButton("calcular");
+		calcular.setSize(10,10);
+		botones.add(calcular,BorderLayout.NORTH);
+		JButton cancelar =new JButton("cancelar");
+		calcular.setSize(10,10);
+		botones.add(cancelar,BorderLayout.NORTH);
+		
+		panelsur.add(botones,BorderLayout.NORTH);
+		/*botones*/
+
+		
+		
+		/*12panel sur12*/
+		JPanel panel2 =new JPanel();
+		panel2.setBackground(Color.DARK_GRAY);
+		panel2.setLayout(new GridLayout(2,2));
+		
+		JLabel interes =new JLabel("interes");
+		interes.setFont(new Font("Arial",Font.BOLD,12));
+		interes.setBackground(null);
+		interes.setForeground(Color.decode("#1F872D"));
+		panel2.add(interes);
+		JTextField interesT =new JTextField();
+		panel2.add(interesT);
+		
+		JLabel Monto =new JLabel("Monto");
+		Monto.setFont(new Font("Arial",Font.BOLD,12));
+		Monto.setBackground(null);
+		Monto.setForeground(Color.decode("#1F872D"));
+		panel2.add(Monto);
+		JTextField MontoT =new JTextField();
+		panel2.add(MontoT);
+		
+		JLabel yfuy  = new JLabel("          ");
+		yfuy.setFont(new Font("Arial",Font.BOLD,12));
+		
+		panelsur.add(panel2,BorderLayout.CENTER);
+		calculadora.add(panelsur,BorderLayout.SOUTH);
+		/*12panel sur12*/
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		calculadora.repaint();
+		calculadora.revalidate();
+	}
 	
 	
 	
