@@ -11,9 +11,9 @@ public class program {
 		Ventana miventana=new Ventana();
 		
 		
-		miventana.registro();
+	//	miventana.registro();
 		
-		
+		miventana.pintar();
 		
 		
 		

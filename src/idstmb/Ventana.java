@@ -1,13 +1,20 @@
 package idstmb;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -997,6 +1004,57 @@ public class Ventana extends JFrame {
 		calculadora.revalidate();
 	}
 	
-	
+	public void pintar() {
+		 JPanel pane = new JPanel() {
+	            @Override
+	            protected void paintComponent(Graphics g) {
+	                super.paintComponent(g);
+	                Graphics2D G2D = (Graphics2D) g;
+	                G2D.setColor(Color.DARK_GRAY);
+	                G2D.setStroke(new BasicStroke(5));
+	                G2D.drawLine(0, 0, 100, 100);
+	                G2D.drawLine(200, 200, 500, 200);
+	                G2D.drawRect(250, 250, 100, 100);
+	                
+	                G2D.setColor(Color.DARK_GRAY);
+	                G2D.drawOval(100, 300, 100, 100);
+	                
+	                G2D.setColor(Color.DARK_GRAY);
+	                G2D.setStroke(new BasicStroke(5));
+	                G2D.drawArc(100, 350, 100, 100, 180, 200);
+	                
+	                G2D.setColor(Color.DARK_GRAY);
+	                G2D.setStroke(new BasicStroke(5));
+	                G2D.drawPolygon(new int[] {200,100,300}, new int[] {100,300,500},3);
+	                G2D.setColor(Color.ORANGE);
+	                G2D.fillRect(500, 450, 100, 200);
+	                G2D.setColor(Color.BLUE);
+	                G2D.fillOval(50, 250, 100, 100);
+	                G2D.setColor(Color.PINK);
+	                G2D.fillArc(300, 300, 100, 100, 180, 200);
+	                G2D.fillPolygon(new int[] {200,100,300}, new int[] {100,300,500},3);
+	                
+	                BufferedImage image;
+					try {
+						image = ImageIO.read(new File("src/icono.png"));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					try {
+						image = ImageIO.read(new File("src/icono.png"));
+						G2D.drawImage(image, 200, 450, null);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	                
+	            }
+	        };
+	        pane.setSize(600,600);
+	        pane.setLocation(0,0);
+	        this.add(pane);
+
+	}
 	
 }
