@@ -13,7 +13,7 @@ public class program {
 		
 	//	miventana.registro();
 		
-		miventana.pintar();
+		miventana.casa();
 		
 		
 		
