@@ -10,6 +10,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -39,7 +41,7 @@ public class Ventana extends JFrame {
 
 	public Ventana() {
 		
-		this.setSize(600, 425);
+		this.setSize(600, 600);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -51,7 +53,7 @@ public class Ventana extends JFrame {
 		this.setLayout(new BorderLayout());
         ImageIcon icono = new ImageIcon("icono.png");
 		this.setIconImage(icono.getImage());
-
+		
 		/*MENU*/
 		JMenuBar menu =new JMenuBar();
 		JMenu archivo =new JMenu("Archivo");
@@ -192,6 +194,22 @@ public class Ventana extends JFrame {
 		acceder.setFont(new  Font("Arial",Font.ROMAN_BASELINE,16));
 		acceder.setBorder(new LineBorder(Color.WHITE, 6, false));
 		contenedor.add(acceder);
+		
+		acceder.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String username_val =username.getText();
+				
+				if(username_val.equals("")) {
+					username.setBorder(new LineBorder(Color.RED, 4));
+				}else {
+					username.setBorder(new LineBorder(Color.GREEN, 4));
+				}
+				
+			}
+		});
+		
 		
 		/*CONTRASEÑA OLVIDADA*/
 		JLabel contraseñaOlvidada = new JLabel();
