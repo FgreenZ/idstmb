@@ -3,6 +3,7 @@ package idstmb;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -27,7 +28,9 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -85,7 +88,7 @@ public class Ventana extends JFrame {
 		//this.add(menu);
 		this.repaint();
 	}
-		
+	
 	public void login() {
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
@@ -138,6 +141,7 @@ public class Ventana extends JFrame {
 		username.setLocation(20, 170);
 		username.setBackground(Color.WHITE);
 		username.setFont(new  Font("Arial",Font.BOLD,16));
+		String username_correcto ="admin";
 		contenedor.add(username);
 		//Texto
 		JLabel usernameT = new JLabel();
@@ -152,12 +156,13 @@ public class Ventana extends JFrame {
 		
 		/*PASSWORD*/
 		//Cuadro de texto
-		JTextField contraseña=new JTextField();
+		JPasswordField  contraseña=new JPasswordField();
 		contraseña.setSize(550, 30);
 		contraseña.setLocation(20, 250);
 		contraseña.setBackground(Color.WHITE);
 		contraseña.setFont(new  Font("Arial",Font.BOLD,16));
 		contenedor.add(contraseña);
+		String contraseña_correcta ="123";
 		//Texto
 		JLabel contraseñaT = new JLabel();
 		contraseñaT.setText("Contraseña");
@@ -168,7 +173,8 @@ public class Ventana extends JFrame {
 		contraseñaT.setLocation(20, 234);
 		contraseñaT.setFont(new  Font("Arial",Font.ITALIC,15));
 		contenedor.add(contraseñaT);
-					
+		
+		
 		
 		contraseña.addActionListener(new ActionListener() {
 			@Override
@@ -200,7 +206,7 @@ public class Ventana extends JFrame {
 		recuerdameT.setLocation(44, 301);
 		recuerdameT.setFont(new  Font("Arial",Font.ITALIC,13));
 		contenedor.add(recuerdameT);
-
+		
 		/*Boton de acceder*/
 		JButton acceder= new JButton();
 		JTextField borde= new JTextField();
@@ -214,21 +220,31 @@ public class Ventana extends JFrame {
 		acceder.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String username_val =username.getText();
-				String contraseña_val =contraseña.getText();
-				int contraseña_caracteres=contraseña_val.length();
-			
+				String contraseña_ingresada =new String(contraseña.getPassword());
+				int mensaje_error =JOptionPane.ERROR_MESSAGE;
+
 				
-				if(username_val.equals("")) {
-					username.setBorder(new LineBorder(Color.RED, 4));
-				}else {
-					username.setBorder(new LineBorder(Color.GREEN, 4));
-				}
-				
-				if(contraseña_val.equals("")||(contraseña_caracteres<6)) {
-					contraseña.setBorder(new LineBorder(Color.RED, 4));
-				}else {
+				if((contraseña_ingresada.equals(contraseña_correcta))&&(username.getText().equals(username_correcto))) {
 					contraseña.setBorder(new LineBorder(Color.GREEN, 4));
+					username.setBorder(new LineBorder(Color.GREEN, 4));
+					JOptionPane.showMessageDialog(
+						    null, 
+						    "Ingresando al sistema...", 
+						    "inicio de sesion", 
+						    JOptionPane.INFORMATION_MESSAGE
+					);
+					
+					
+				}else {
+					contraseña.setBorder(new LineBorder(Color.RED, 4));
+					username.setBorder(new LineBorder(Color.RED, 4));
+					JOptionPane.showMessageDialog(
+						    null, 
+						    "Contraseña o usuario incorrectos", 
+						    "Error", 
+						    JOptionPane.INFORMATION_MESSAGE
+					);
+
 				}
 			}
 		});
@@ -539,28 +555,6 @@ public class Ventana extends JFrame {
 		scrollPane.setLocation(30,175);
 		scrollPane.setSize(800,200);
 		users.add(scrollPane);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		users.repaint();
@@ -1215,7 +1209,7 @@ public class Ventana extends JFrame {
 	                ///
 	                
 	                
-	            }//#BE8B3C
+	            }
 		 };
 		 pane.setBackground(Color.decode("#81B7FF"));
 		 pane.setSize(650,400);
@@ -1225,7 +1219,11 @@ public class Ventana extends JFrame {
 	
 	
 	
-	
+	public void marioFrame() {
+		
+		
+		
+	}
 	
 	
 	
