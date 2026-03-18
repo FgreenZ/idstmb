@@ -34,6 +34,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.ImageIcon;
 
@@ -41,7 +42,7 @@ public class Ventana extends JFrame {
 
 	public Ventana() {
 		
-		this.setSize(600, 600);
+		this.setSize(600, 650);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -167,7 +168,22 @@ public class Ventana extends JFrame {
 		contraseñaT.setLocation(20, 234);
 		contraseñaT.setFont(new  Font("Arial",Font.ITALIC,15));
 		contenedor.add(contraseñaT);
-																	
+					
+		
+		contraseña.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String contraseña_val =username.getText();
+				
+				if(contraseña_val.equals("")) {
+					contraseña.setBorder(new LineBorder(Color.RED, 4));
+				}else {
+					contraseña.setBorder(new LineBorder(Color.GREEN, 4));
+				}
+				
+			}
+		});
+		
 		/*REMEMEBER ME*/
 		//Boton
 		JCheckBox recuerdame=new JCheckBox();
@@ -196,10 +212,12 @@ public class Ventana extends JFrame {
 		contenedor.add(acceder);
 		
 		acceder.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String username_val =username.getText();
+				String contraseña_val =contraseña.getText();
+				int contraseña_caracteres=contraseña_val.length();
+			
 				
 				if(username_val.equals("")) {
 					username.setBorder(new LineBorder(Color.RED, 4));
@@ -207,6 +225,11 @@ public class Ventana extends JFrame {
 					username.setBorder(new LineBorder(Color.GREEN, 4));
 				}
 				
+				if(contraseña_val.equals("")||(contraseña_caracteres<6)) {
+					contraseña.setBorder(new LineBorder(Color.RED, 4));
+				}else {
+					contraseña.setBorder(new LineBorder(Color.GREEN, 4));
+				}
 			}
 		});
 		
@@ -250,6 +273,8 @@ public class Ventana extends JFrame {
 		titulo.setFont(new  Font("Arial",Font.ITALIC,40));
 		register_conteneiner.add(titulo);
 		
+		
+		
 		//desplegable colonias
 		JComboBox colonias=new JComboBox();
 		colonias.setSize(550,20);
@@ -259,15 +284,6 @@ public class Ventana extends JFrame {
 		colonias.setLocation(20,455);
 		register_conteneiner.add(colonias);
 
-		//boton aceptar
-		JButton accederB= new JButton();
-		accederB.setText("Aceptar");
-		accederB.setSize(500, 90);
-		accederB.setBackground(Color.WHITE);
-		accederB.setFont(new  Font("Arial",Font.ROMAN_BASELINE,22));
-		accederB.setBorder(new LineBorder(Color.BLACK, 6, true));
-		accederB.setLocation(50,492);
-		register_conteneiner.add(accederB);
 		
 		//usuario
 		JTextField usuarioT=new JTextField();
@@ -372,15 +388,7 @@ public class Ventana extends JFrame {
 		checkBoxAT.setFont(new  Font("Arial",Font.ITALIC,14));
 		register_conteneiner.add(checkBoxAT);
 		
-		//boton aceptar
-		JButton terminos= new JButton();
-		terminos.setText("Acepto los terminos");
-		terminos.setSize(500, 20);
-		terminos.setBackground(Color.WHITE);
-		terminos.setFont(new Font("Arial",Font.ROMAN_BASELINE,14));
-		terminos.setBorder(new LineBorder(Color.BLACK, 2, true));
-		terminos.setLocation(50,400);
-		register_conteneiner.add(terminos);
+		
 		
 		ButtonGroup opciones = new ButtonGroup();
 		JRadioButton acepto =new JRadioButton();
@@ -395,14 +403,78 @@ public class Ventana extends JFrame {
 		deniego.setText("No acepto");
 		deniego.setBackground(Color.LIGHT_GRAY);
 		deniego.setLocation(360,430);
-		
 		opciones.add(acepto);
 		opciones.add(deniego);
-		acepto.setSelected(true);
         setVisible(true);
         register_conteneiner.add(acepto);
         register_conteneiner.add(deniego);
 
+        //boton aceptar
+        JButton terminos= new JButton();
+        terminos.setText("Acepto los terminos");
+        terminos.setSize(500, 20);
+        terminos.setBackground(Color.WHITE);
+        terminos.setFont(new Font("Arial",Font.ROMAN_BASELINE,14));
+        terminos.setBorder(new LineBorder(Color.BLACK, 2, true));
+        terminos.setLocation(50,400);
+        register_conteneiner.add(terminos);
+        
+        terminos.addActionListener(new ActionListener() {
+        	@Override
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		acepto.setSelected(true);
+        		
+        	}
+        });
+        
+      //boton aceptar
+  		JButton accederB= new JButton();
+  		accederB.setText("Aceptar");
+  		accederB.setSize(500, 90);
+  		accederB.setBackground(Color.WHITE);
+  		accederB.setFont(new  Font("Arial",Font.ROMAN_BASELINE,22));
+  		accederB.setBorder(new LineBorder(Color.BLACK, 6, true));
+  		accederB.setLocation(50,492);
+  		register_conteneiner.add(accederB);
+  		
+  		accederB.addActionListener(new ActionListener() {
+  			@Override
+  			public void actionPerformed(ActionEvent e) {
+  				String biografia_val =BiografiaT.getText();
+  				int biografia_caracteres =biografia_val.length();
+  				
+  				if(usuarioT.getText().equals("")) {
+  					usuarioT.setBorder(new LineBorder(Color.red, 1, true));
+  				}else {
+  					usuarioT.setBorder(new LineBorder(Color.green, 1, true));
+  				}
+  				
+  				if(biografia_val.equals("")||biografia_caracteres<5) {
+  					BiografiaT.setBorder(new LineBorder(Color.RED, 4));
+  				}else {
+  					BiografiaT.setBorder(new LineBorder(Color.GREEN, 4));
+  				}
+  				
+  				if(checkBoxD.isSelected()||checkBoxS.isSelected()||checkBoxA.isSelected()) {
+  				    checkBoxD.setBackground(Color.GREEN);
+  				    checkBoxS.setBackground(Color.GREEN);
+  				    checkBoxA.setBackground(Color.GREEN);
+  				}else{
+  					checkBoxD.setBackground(Color.red);
+  				    checkBoxS.setBackground(Color.red);
+  				    checkBoxA.setBackground(Color.red);
+  				}
+  				
+  				if(acepto.isSelected()) {
+  					terminos.setBorder(new LineBorder(Color.GREEN, 2, true));
+  				}else {
+  					terminos.setBorder(new LineBorder(Color.red, 2, true));
+  				}
+  				
+  			}
+  		});
+      		
 
         register_conteneiner.repaint();		
 	}	
