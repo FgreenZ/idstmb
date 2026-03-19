@@ -45,7 +45,7 @@ public class Ventana extends JFrame {
 
 	public Ventana() {
 		
-		this.setSize(650, 400);
+		this.setSize(600, 625);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -61,31 +61,25 @@ public class Ventana extends JFrame {
 		/*MENU*/
 		JMenuBar menu =new JMenuBar();
 		JMenu archivo =new JMenu("Archivo");
-		JMenuItem item =new JMenuItem("abrir");
-		JMenuItem item1 =new JMenuItem("cerrar");
-		JMenuItem item2 =new JMenuItem("Guardar");
-		JMenuItem item3 =new JMenuItem("eliminar ");
-		JMenuItem item4 =new JMenuItem("nuevo");
-		
+		JMenuItem item =new JMenuItem("Inicio de sesion");
+		JMenuItem item1 =new JMenuItem("registro");
 		archivo.addSeparator();
-		
-		JMenu submenu =new JMenu("Otro");
-		JMenuItem item6 =new JMenuItem("quejas");
-		JMenuItem item7 =new JMenuItem("contactanos");
-		submenu.add(item6);
-		submenu.add(item7);
+
+		item1.addActionListener(e->{
+			router("registro");
+		});
+		item.addActionListener(e->{
+			router("login");
+		});
 		
 		archivo.add(item);
 		archivo.add(item1);
-		archivo.add(item2);
-		archivo.add(item3);
-		archivo.add(item4);
-		archivo.add(submenu);
+
 		
-		//menu.add(archivo);
+		menu.add(archivo);
 		this.setVisible(true);
-		//this.setJMenuBar(menu);
-		//this.add(menu);
+		this.setJMenuBar(menu);
+		this.add(menu);
 		this.repaint();
 	}
 	
@@ -217,6 +211,23 @@ public class Ventana extends JFrame {
 		acceder.setBorder(new LineBorder(Color.WHITE, 6, false));
 		contenedor.add(acceder);
 		
+		//aun no tienes cuenta?
+		JButton no_cuenta= new JButton();
+		no_cuenta.setText("¿Aun no tienes cuenta?");
+		no_cuenta.setSize(250, 90);
+		no_cuenta.setBackground(null);
+		no_cuenta.setLocation(180,475);
+		no_cuenta.setForeground(Color.WHITE);
+		no_cuenta.setFont(new  Font("Arial",Font.ROMAN_BASELINE,16));
+		contenedor.add(no_cuenta);
+		
+		no_cuenta.addActionListener(e->{
+			
+			this.router("users");
+			
+		});
+		
+		
 		acceder.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -233,7 +244,7 @@ public class Ventana extends JFrame {
 						    "inicio de sesion", 
 						    JOptionPane.INFORMATION_MESSAGE
 					);
-					
+					 router("registro");
 					
 				}else {
 					contraseña.setBorder(new LineBorder(Color.RED, 4));
@@ -272,7 +283,7 @@ public class Ventana extends JFrame {
 		//contenedor de registro
 		JPanel register_conteneiner = new JPanel();
 		register_conteneiner.setSize(600,600);
-		register_conteneiner.setLocation(600,0);
+		register_conteneiner.setLocation(0,0);
 		register_conteneiner.setOpaque(true);
 		register_conteneiner.setBackground(Color.lightGray);
 		register_conteneiner.setLayout(null);
@@ -1424,7 +1435,52 @@ public class Ventana extends JFrame {
 		
 	}
 	
+	public void menuBar() {
+		/*MENU*/
+		JMenuBar menu =new JMenuBar();
+		JMenu archivo =new JMenu("Archivo");
+		JMenuItem item =new JMenuItem("Inicio de sesion");
+		JMenuItem item1 =new JMenuItem("registro");
+		archivo.addSeparator();
+
+		item1.addActionListener(e->{
+			router("registro");
+		});
+		item.addActionListener(e->{
+			router("login");
+		});
+		
+		archivo.add(item);
+		archivo.add(item1);
+
+		
+		menu.add(archivo);
+		this.setVisible(true);
+		this.setJMenuBar(menu);
+		this.add(menu);
+		this.repaint();
+	}
 	
+	public void router(String referencia) {
+		
+		this.getContentPane().removeAll();;
+		menuBar();
+
+		if(referencia.equals("registro")) {
+			this.registro();
+		}
+		if(referencia.equals("users")) {
+			this.users();
+		}
+		if(referencia.equals("login")) {
+			this.login();
+		}
+		
+		this.setVisible(true);
+		this.repaint();
+		this.revalidate();
+		
+	}
 	
 	
 	
