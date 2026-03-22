@@ -268,4 +268,12 @@ public class Ventana2 {
 		lista.setFont(new Font("Arial", Font.PLAIN, 10));
 		panel_4.add(lista);
 	}
+	
+	private void examn() {
+		frame = new JFrame();
+		frame.setBackground(Color.decode("#FFFFFF"));
+		frame.setBounds(100, 100, 550, 490);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+	}
 }

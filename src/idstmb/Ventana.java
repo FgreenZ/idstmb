@@ -45,7 +45,7 @@ public class Ventana extends JFrame {
 
 	public Ventana() {
 		
-		this.setSize(600, 625);
+		this.setSize(600, 650);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -58,7 +58,9 @@ public class Ventana extends JFrame {
         ImageIcon icono = new ImageIcon("icono.png");
 		this.setIconImage(icono.getImage());
 		
+		
 		/*MENU*/
+		/*
 		JMenuBar menu =new JMenuBar();
 		JMenu archivo =new JMenu("Archivo");
 		JMenuItem item =new JMenuItem("Inicio de sesion");
@@ -77,9 +79,10 @@ public class Ventana extends JFrame {
 
 		
 		menu.add(archivo);
-		this.setVisible(true);
 		this.setJMenuBar(menu);
 		this.add(menu);
+		*/
+		this.setVisible(true);
 		this.repaint();
 	}
 	
@@ -1481,6 +1484,327 @@ public class Ventana extends JFrame {
 		this.revalidate();
 		
 	}
+	
+	
+	public void examen() {
+		
+		JPanel examen = new JPanel();
+		examen.setSize(600, 650);
+		examen.setLocation(0, 0);
+		examen.setBackground(Color.white);
+		examen.setLayout(new BorderLayout());
+		this.add(examen);
+		
+		///////////////////
+		JPanel titulo=new JPanel(new BorderLayout());
+		titulo.setBackground(Color.decode("#006699"));
+		examen.add(titulo,BorderLayout.NORTH);
+		
+		JLabel titulo1 =new JLabel("  Factura en java - NeatBeans - ArrayList y POO                       ");
+		titulo1.setPreferredSize(new Dimension(200,50));
+		titulo1.setFont(new Font("Arial",Font.PLAIN,20));
+		titulo1.setForeground(Color.WHITE);
+		titulo.add(titulo1,BorderLayout.NORTH);
+		
+		JLabel titulo2 =new JLabel("  [Sin Base de datos]                      ");
+		titulo2.setPreferredSize(new Dimension(200,30));
+		titulo2.setFont(new Font("Arial",Font.PLAIN,16));
+		titulo2.setForeground(Color.WHITE);
+		titulo.add(titulo2,BorderLayout.CENTER);
+		
+		//////////////	
+		JPanel abajo=new JPanel(new BorderLayout());
+		abajo.setPreferredSize(new Dimension(0,15));
+		abajo.setBackground(Color.decode("#006699"));
+		examen.add(abajo,BorderLayout.SOUTH);
+		/////////////
+		
+		JPanel centro=new JPanel(new BorderLayout());
+		examen.add(centro,BorderLayout.CENTER);
+		/////////////
+		
+		JPanel centro_arriba = new JPanel();
+		centro_arriba.setLayout(null);
+		centro_arriba.setBackground(Color.WHITE);
+		centro_arriba.setPreferredSize(new Dimension(600, 525)); 
+		centro.add(centro_arriba, BorderLayout.NORTH);
+
+		JLabel datosdelcliente = new JLabel("Datos del cliente");
+		datosdelcliente.setBounds(20, 10, 145, 14);
+		datosdelcliente.setFont(new Font("Arial", Font.BOLD, 14));
+		datosdelcliente.setForeground(Color.BLACK);
+		datosdelcliente.setBackground(Color.white);
+		centro_arriba.add(datosdelcliente);
+		
+		////////////////////////
+		JPanel panelDatosCliente = new JPanel();
+		panelDatosCliente.setLayout(null); 
+		panelDatosCliente.setBounds(25, 25, 550, 70); 
+		panelDatosCliente.setBackground(null);
+		panelDatosCliente.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2)); 
+		centro_arriba.add(panelDatosCliente);
+		///
+		JLabel documento = new JLabel("Documento:");
+		documento.setBounds(20, 10, 145, 14);
+		documento.setFont(new Font("Arial", Font.PLAIN, 14));
+		documento.setForeground(Color.BLACK);
+		documento.setBackground(Color.white);
+		panelDatosCliente.add(documento);
+		
+		JTextField documento1 = new JTextField("123456");
+		documento1.setBounds(100, 10, 145, 14);
+		documento1.setPreferredSize(new Dimension(20, 14)); 
+		documento1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1)); 
+		documento1.setFont(new Font("Arial", Font.PLAIN, 14));
+		documento1.setForeground(Color.BLACK);
+		documento1.setBackground(Color.white);
+		panelDatosCliente.add(documento1);
+		
+		JLabel nombres = new JLabel("Nombres:");
+		nombres.setBounds(275, 10, 145, 14);
+		nombres.setFont(new Font("Arial", Font.PLAIN, 14));
+		nombres.setForeground(Color.BLACK);
+		nombres.setBackground(Color.white);
+		panelDatosCliente.add(nombres);
+		
+		JTextField nombres1 = new JTextField("Jhon Doe");
+		nombres1.setBounds(350, 10, 145, 14);
+		nombres1.setPreferredSize(new Dimension(20, 14)); 
+		nombres1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1)); 
+		nombres1.setFont(new Font("Arial", Font.PLAIN, 14));
+		nombres1.setForeground(Color.BLACK);
+		nombres1.setBackground(Color.white);
+		panelDatosCliente.add(nombres1);
+		//
+		JLabel direccion = new JLabel("Direccion:");
+		direccion.setBounds(20, 40, 145, 14);
+		direccion.setFont(new Font("Arial", Font.PLAIN, 14));
+		direccion.setForeground(Color.BLACK);
+		direccion.setBackground(Color.white);
+		panelDatosCliente.add(direccion);
+		
+		JTextField direccion1 = new JTextField("Calle #1 123");
+		direccion1.setBounds(100, 40, 145, 14);
+		direccion1.setPreferredSize(new Dimension(20, 14)); 
+		direccion1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1)); 
+		direccion1.setFont(new Font("Arial", Font.PLAIN, 14));
+		direccion1.setForeground(Color.BLACK);
+		direccion1.setBackground(Color.white);
+		panelDatosCliente.add(direccion1);
+		
+		JLabel telefono = new JLabel("Teléfono:");
+		telefono.setBounds(275, 40, 145, 14);
+		telefono.setFont(new Font("Arial", Font.PLAIN, 14));
+		telefono.setForeground(Color.BLACK);
+		telefono.setBackground(Color.white);
+		panelDatosCliente.add(telefono);
+		
+		JTextField telefono1 = new JTextField("5554433");
+		telefono1.setBounds(350, 40, 145, 14);
+		telefono1.setPreferredSize(new Dimension(20, 14)); 
+		telefono1.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1)); 
+		telefono1.setFont(new Font("Arial", Font.PLAIN, 14));
+		telefono1.setForeground(Color.BLACK);
+		telefono1.setBackground(Color.white);
+		panelDatosCliente.add(telefono1);
+		/////////////////////////////////////
+		
+		JLabel datosdelfactura = new JLabel("Datos de factura");
+		datosdelfactura.setBounds(20, 110, 145, 14);
+		datosdelfactura.setFont(new Font("Arial", Font.BOLD, 14));
+		datosdelfactura.setForeground(Color.gray);
+		datosdelfactura.setBackground(Color.white);
+		centro_arriba.add(datosdelfactura);
+		
+		////////////////////////
+		JPanel paneldatosdelfactura = new JPanel();
+		paneldatosdelfactura.setLayout(null); 
+		paneldatosdelfactura.setBounds(25, 130, 550, 70); 
+		paneldatosdelfactura.setBackground(null);
+		paneldatosdelfactura.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2)); 
+		centro_arriba.add(paneldatosdelfactura);
+		///
+		JLabel NFactura = new JLabel("N#Factura:");
+		NFactura.setBounds(20, 25, 145, 14);
+		NFactura.setFont(new Font("Arial", Font.PLAIN, 17));
+		NFactura.setForeground(Color.gray);
+		NFactura.setBackground(Color.white);
+		paneldatosdelfactura.add(NFactura);
+		JLabel numerodefactura = new JLabel("1");
+		numerodefactura.setBounds(140, 25, 145, 14);
+		numerodefactura.setFont(new Font("Arial", Font.BOLD, 17));
+		numerodefactura.setForeground(Color.gray);
+		numerodefactura.setBackground(Color.white);
+		paneldatosdelfactura.add(numerodefactura);
+		
+		JLabel fecha = new JLabel("Fecha:");
+		fecha.setBounds(300, 25, 145, 14);
+		fecha.setFont(new Font("Arial", Font.PLAIN, 17));
+		fecha.setForeground(Color.gray);
+		fecha.setBackground(Color.white);
+		paneldatosdelfactura.add(fecha);
+		JLabel fechanumero = new JLabel("2026/03/22");
+		fechanumero.setBounds(370, 25, 145, 14);
+		fechanumero.setFont(new Font("Arial", Font.BOLD, 17));
+		fechanumero.setForeground(Color.gray);
+		fechanumero.setBackground(Color.white);
+		paneldatosdelfactura.add(fechanumero);
+		
+		//////////////////////////////////////////
+		JLabel verlistadodefacturas = new JLabel("Ver listado de facturas");
+		verlistadodefacturas.setBounds(80, 232, 180, 14);
+		verlistadodefacturas.setFont(new Font("Arial", Font.BOLD, 14));
+		verlistadodefacturas.setForeground(Color.gray);
+		verlistadodefacturas.setBackground(Color.white);
+		centro_arriba.add(verlistadodefacturas);
+		JPanel cuadroverlistadodefacturas = new JPanel();
+		cuadroverlistadodefacturas.setLayout(null); 
+		cuadroverlistadodefacturas.setBounds(25, 220, 550, 40); 
+		cuadroverlistadodefacturas.setBackground(null);
+		cuadroverlistadodefacturas.setBorder(BorderFactory.createLineBorder(Color.GRAY, 2)); 
+		centro_arriba.add(cuadroverlistadodefacturas);
+		//////////////////////////////////////////////////////
+		///
+		Object [] table_head= {"Producto","Cantidad","Valor","Subtotal"};
+		
+		Object [][] table_content = {
+			    {"Agua","2","500","1000.0","92.5"},
+			    {"Cereal","5","100","5000.0","88.3"},
+			    {"Leche","2","300","2","600.0"}
+		};
+		
+		JTable users_table =new JTable(table_content,table_head);
+		users_table.setSize(550,150);
+		users_table.setLocation(30,275);
+		centro_arriba.add(users_table);
+		
+		JScrollPane scrollPane =new JScrollPane(users_table);
+		scrollPane.setLocation(25,275);
+		scrollPane.setSize(550,100);
+		centro_arriba.add(scrollPane);
+		
+		//////////////////////////////////////////////////////////
+		
+		JLabel subtotal = new JLabel("SubTotal: ");
+		subtotal.setBounds(25, 385, 145, 14);
+		subtotal.setFont(new Font("Arial", Font.PLAIN, 14));
+		subtotal.setForeground(Color.darkGray);
+		subtotal.setBackground(Color.white);
+		centro_arriba.add(subtotal);
+		JLabel Descuento = new JLabel("% Descuento: ");
+		Descuento.setBounds(25, 410, 145, 14);
+		Descuento.setFont(new Font("Arial", Font.PLAIN, 14));
+		Descuento.setForeground(Color.darkGray);
+		Descuento.setBackground(Color.white);
+		centro_arriba.add(Descuento);
+		JLabel iva = new JLabel("IVA 19%: ");
+		iva.setBounds(25, 435, 145, 14);
+		iva.setFont(new Font("Arial", Font.PLAIN, 14));
+		iva.setForeground(Color.darkGray);
+		iva.setBackground(Color.white);
+		centro_arriba.add(iva);
+		JLabel totalfactura = new JLabel("Total Factura");
+		totalfactura.setBounds(25, 460, 145, 14);
+		totalfactura.setFont(new Font("Arial", Font.PLAIN, 14));
+		totalfactura.setForeground(Color.darkGray);
+		totalfactura.setBackground(Color.white);
+		centro_arriba.add(totalfactura);
+		
+		///////////////////////////////////////////////////////////////
+		
+		JLabel subtotalc = new JLabel("6600.0");
+		subtotalc.setBounds(140, 385, 145, 14);
+		subtotalc.setFont(new Font("Arial", Font.BOLD, 14));
+		subtotalc.setForeground(Color.BLACK);
+		subtotalc.setBackground(Color.white);
+		centro_arriba.add(subtotalc);
+		JTextField Descuentoc = new JTextField("5");
+		Descuentoc.setBounds(140, 410, 20, 15);
+		Descuentoc.setFont(new Font("Arial", Font.BOLD, 14));
+		Descuentoc.setForeground(Color.darkGray);
+		Descuentoc.setBackground(Color.white);
+		centro_arriba.add(Descuentoc);
+		JLabel ivac = new JLabel("1254.0");
+		ivac.setBounds(140, 435, 145, 14);
+		ivac.setFont(new Font("Arial", Font.BOLD, 14));
+		ivac.setForeground(Color.darkGray);
+		ivac.setBackground(Color.white);
+		centro_arriba.add(ivac);
+		JLabel totalfacturac = new JLabel("7524.0");
+		totalfacturac.setBounds(140, 460, 145, 14);
+		totalfacturac.setFont(new Font("Arial", Font.BOLD, 14));
+		totalfacturac.setForeground(Color.darkGray);
+		totalfacturac.setBackground(Color.white);
+		centro_arriba.add(totalfacturac);
+		////////
+		JCheckBox checkBox = new JCheckBox();
+		checkBox.setBounds(200, 388, 30, 55); 
+		checkBox.setForeground(Color.BLACK);
+		checkBox.setBackground(Color.WHITE);
+		centro_arriba.add(checkBox);
+		///////
+		JLabel vdescontado = new JLabel("Valor descontado: ");
+		vdescontado.setBounds(240, 410, 145, 14);
+		vdescontado.setFont(new Font("Arial", Font.PLAIN, 14));
+		vdescontado.setForeground(Color.darkGray);
+		vdescontado.setBackground(Color.white);
+		centro_arriba.add(vdescontado);
+		JLabel vdescontadot = new JLabel("330.0");
+		vdescontadot.setBounds(380, 410, 145, 14);
+		vdescontadot.setFont(new Font("Arial", Font.BOLD, 14));
+		vdescontadot.setForeground(Color.darkGray);
+		vdescontadot.setBackground(Color.white);
+		centro_arriba.add(vdescontadot);
+		///////////////////////////////////////////////////////////////////////////
+		
+		ImageIcon icono1 = new ImageIcon("añadir.png");
+		JButton boton = new JButton("Añadir", icono1);
+		boton.setBounds(310, 2, 100, 35);
+		boton.setBackground(null);
+		boton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1)); 
+		cuadroverlistadodefacturas.add(boton);
+		
+		ImageIcon icono2 = new ImageIcon("eliminar3.png");
+		JButton boton2 = new JButton("Eliminar", icono2);
+		boton2.setBounds(420, 2, 100, 35);
+		boton2.setBackground(null);
+		boton2.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1)); 
+		cuadroverlistadodefacturas.add(boton2);
+	
+		ImageIcon img = new ImageIcon("lista1.png");
+		JButton listas = new JButton(img);
+		listas.setBounds(7, 2, 50, 35);
+		listas.setBackground(null);
+		listas.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1)); 
+		listas.setEnabled(false);
+		cuadroverlistadodefacturas.add(listas);
+		
+		/////////////////////////////////////
+		JButton finalizar = new JButton("Finalizar factura");
+		finalizar.setBounds(310, 480, 150, 35);
+		finalizar.setFont(new Font("Arial", Font.BOLD, 14));
+		finalizar.setBackground(Color.decode("#E5F1FB"));
+		finalizar.setBorder(BorderFactory.createLineBorder(Color.decode("#5FA7E1"), 1)); 
+		centro_arriba.add(finalizar);
+		
+		JButton limpiar = new JButton("Limpiar");
+		limpiar.setBounds(480, 480, 80, 35);
+		limpiar.setFont(new Font("Arial", Font.BOLD, 14));
+		limpiar.setBackground(Color.decode("#E1E1E1"));
+		limpiar.setBorder(BorderFactory.createLineBorder(Color.decode("#C2C2C2"), 1)); 
+		centro_arriba.add(limpiar);
+		
+		this.setVisible(true);
+		this.repaint();
+		this.revalidate();
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 	
 	
