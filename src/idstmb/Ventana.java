@@ -60,11 +60,21 @@ public class Ventana extends JFrame {
 		
 		
 		/*MENU*/
-		/*
+		/*MENU*/
 		JMenuBar menu =new JMenuBar();
-		JMenu archivo =new JMenu("Archivo");
-		JMenuItem item =new JMenuItem("Inicio de sesion");
+		JMenu archivo =new JMenu("Cuenta");
+		JMenuItem item =new JMenuItem("login");
 		JMenuItem item1 =new JMenuItem("registro");
+		JMenuItem item8 =new JMenuItem("recuperacion de cuenta");
+		JMenu usuario =new JMenu("Usuarios");
+		JMenuItem item2 =new JMenuItem("Alta");
+		JMenuItem item3 =new JMenuItem("Baja");
+		JMenuItem item4 =new JMenuItem("Consultar");
+		JMenu Ayuda =new JMenu("Ayuda");
+		JMenuItem item5 =new JMenuItem("¿Cómo crear un usuario?");
+		JMenuItem item6 =new JMenuItem("¿Cómo acceder al sistema?");
+		JMenuItem item7 =new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		
 		archivo.addSeparator();
 
 		item1.addActionListener(e->{
@@ -73,16 +83,35 @@ public class Ventana extends JFrame {
 		item.addActionListener(e->{
 			router("login");
 		});
+		item8.addActionListener(e->{
+			router("recuperacion de cuenta");
+		});
+		item5.addActionListener(e->{
+			router("createAccount");
+		});
+		item6.addActionListener(e->{
+			router("sistemAcces");
+		});
+		item7.addActionListener(e->{
+			router("forgetPassword");
+		});
 		
 		archivo.add(item);
 		archivo.add(item1);
-
+		archivo.add(item8);
+		usuario.add(item2);
+		usuario.add(item3);
+		usuario.add(item4);
+		Ayuda.add(item5);
+		Ayuda.add(item6);
+		Ayuda.add(item7);
 		
+		menu.add(Ayuda);
 		menu.add(archivo);
+		menu.add(usuario);
+		this.setVisible(true);
 		this.setJMenuBar(menu);
 		this.add(menu);
-		*/
-		this.setVisible(true);
 		this.repaint();
 	}
 	
@@ -1441,9 +1470,19 @@ public class Ventana extends JFrame {
 	public void menuBar() {
 		/*MENU*/
 		JMenuBar menu =new JMenuBar();
-		JMenu archivo =new JMenu("Archivo");
-		JMenuItem item =new JMenuItem("Inicio de sesion");
+		JMenu archivo =new JMenu("Cuenta");
+		JMenuItem item =new JMenuItem("login");
 		JMenuItem item1 =new JMenuItem("registro");
+		JMenuItem item8 =new JMenuItem("recuperacion de cuenta");
+		JMenu usuario =new JMenu("Usuarios");
+		JMenuItem item2 =new JMenuItem("Alta");
+		JMenuItem item3 =new JMenuItem("Baja");
+		JMenuItem item4 =new JMenuItem("Consultar");
+		JMenu Ayuda =new JMenu("Ayuda");
+		JMenuItem item5 =new JMenuItem("¿Cómo crear un usuario?");
+		JMenuItem item6 =new JMenuItem("¿Cómo acceder al sistema?");
+		JMenuItem item7 =new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		
 		archivo.addSeparator();
 
 		item1.addActionListener(e->{
@@ -1452,12 +1491,42 @@ public class Ventana extends JFrame {
 		item.addActionListener(e->{
 			router("login");
 		});
+		item8.addActionListener(e->{
+			router("recuperacion de cuenta");
+		});
+		item5.addActionListener(e->{
+			router("createAccount");
+		});
+		item6.addActionListener(e->{
+			router("sistemAcces");
+		});
+		item7.addActionListener(e->{
+			router("forgetPassword");
+		});
+		
+		item2.addActionListener(e->{
+			router("alta");
+		});
+		item3.addActionListener(e->{
+			router("baja");
+		});
+		item4.addActionListener(e->{
+			router("consultar");
+		});
 		
 		archivo.add(item);
 		archivo.add(item1);
-
+		archivo.add(item8);
+		usuario.add(item2);
+		usuario.add(item3);
+		usuario.add(item4);
+		Ayuda.add(item5);
+		Ayuda.add(item6);
+		Ayuda.add(item7);
 		
+		menu.add(Ayuda);
 		menu.add(archivo);
+		menu.add(usuario);
 		this.setVisible(true);
 		this.setJMenuBar(menu);
 		this.add(menu);
@@ -1478,6 +1547,29 @@ public class Ventana extends JFrame {
 		if(referencia.equals("login")) {
 			this.login();
 		}
+		if(referencia.equals("recuperacion de cuenta")) {
+			this.recovery_password();
+		}
+		
+		if(referencia.equals("createAccount")) {
+			this.createAccount();
+		}
+		if(referencia.equals("sistemAcces")) {
+			this.sistemAcces();
+		}
+		if(referencia.equals("forgetPassword")) {
+			this.forgetPassword();
+		}
+
+		if(referencia.equals("alta")) {
+			this.Alta();
+		}
+		if(referencia.equals("baja")) {
+			this.Baja();
+		}
+		if(referencia.equals("consultar")) {
+			this.Consultar();
+		}
 		
 		this.setVisible(true);
 		this.repaint();
@@ -1485,6 +1577,135 @@ public class Ventana extends JFrame {
 		
 	}
 	
+	public void recovery_password()
+	{
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255)); 
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		panel.setSize(1000, 600); 
+		
+		JLabel lblNewLabel = new JLabel("RECUPERACION DE CUENTA");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
+		lblNewLabel.setBounds(107, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(lblNewLabel);
+	
+
+		
+	
+		
+		 
+		
+		this.add(panel);
+	}
+	
+	public void createAccount() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255)); 
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		panel.setSize(1000, 600); 
+		
+		JLabel lblNewLabel = new JLabel("CREAR CUENTA");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
+		lblNewLabel.setBounds(107, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(lblNewLabel);
+		
+		this.add(panel);
+
+	}
+	
+	public void sistemAcces() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255)); 
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		panel.setSize(1000, 600); 
+		
+		JLabel lblNewLabel = new JLabel("Acceder al sistema");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
+		lblNewLabel.setBounds(107, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(lblNewLabel);
+		
+		this.add(panel);
+
+	}
+	
+	public void forgetPassword() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255)); 
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		panel.setSize(1000, 600); 
+		
+		JLabel lblNewLabel = new JLabel("contraseña olvidada");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
+		lblNewLabel.setBounds(107, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(lblNewLabel);	
+		
+		this.add(panel);
+
+	}
+	
+	public void Alta() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255)); 
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		panel.setSize(1000, 600); 
+		
+		JLabel lblNewLabel = new JLabel("Alta");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
+		lblNewLabel.setBounds(107, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(lblNewLabel);	
+		
+		this.add(panel);
+	}
+	
+	public void Baja() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255)); 
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		panel.setSize(1000, 600); 
+		
+		JLabel lblNewLabel = new JLabel("Baja");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
+		lblNewLabel.setBounds(107, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(lblNewLabel);	
+		
+		this.add(panel);
+	}
+	
+	public void Consultar() {
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255)); 
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		panel.setSize(1000, 600); 
+		
+		JLabel lblNewLabel = new JLabel("Consultar");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
+		lblNewLabel.setBounds(107, 35, 210, 26);
+		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
+		panel.add(lblNewLabel);	
+		
+		this.add(panel);
+	}
 	
 	public void examen() {
 		
@@ -1649,7 +1870,6 @@ public class Ventana extends JFrame {
 		fechanumero.setForeground(Color.gray);
 		fechanumero.setBackground(Color.white);
 		paneldatosdelfactura.add(fechanumero);
-		
 		//////////////////////////////////////////
 		JLabel verlistadodefacturas = new JLabel("Ver listado de facturas");
 		verlistadodefacturas.setBounds(80, 232, 180, 14);
@@ -1802,7 +2022,7 @@ public class Ventana extends JFrame {
 	}
 	
 	
-	
+
 	
 	
 	
