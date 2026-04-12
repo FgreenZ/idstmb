@@ -45,7 +45,7 @@ public class Ventana extends JFrame {
 
 	public Ventana() {
 		
-		this.setSize(600, 650);
+		this.setSize(600, 636);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.WHITE);
@@ -60,58 +60,9 @@ public class Ventana extends JFrame {
 		
 		
 		/*MENU*/
-		/*MENU*/
-		JMenuBar menu =new JMenuBar();
-		JMenu archivo =new JMenu("Cuenta");
-		JMenuItem item =new JMenuItem("login");
-		JMenuItem item1 =new JMenuItem("registro");
-		JMenuItem item8 =new JMenuItem("recuperacion de cuenta");
-		JMenu usuario =new JMenu("Usuarios");
-		JMenuItem item2 =new JMenuItem("Alta");
-		JMenuItem item3 =new JMenuItem("Baja");
-		JMenuItem item4 =new JMenuItem("Consultar");
-		JMenu Ayuda =new JMenu("Ayuda");
-		JMenuItem item5 =new JMenuItem("¿Cómo crear un usuario?");
-		JMenuItem item6 =new JMenuItem("¿Cómo acceder al sistema?");
-		JMenuItem item7 =new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		this.menuBar();
 		
-		archivo.addSeparator();
-
-		item1.addActionListener(e->{
-			router("registro");
-		});
-		item.addActionListener(e->{
-			router("login");
-		});
-		item8.addActionListener(e->{
-			router("recuperacion de cuenta");
-		});
-		item5.addActionListener(e->{
-			router("createAccount");
-		});
-		item6.addActionListener(e->{
-			router("sistemAcces");
-		});
-		item7.addActionListener(e->{
-			router("forgetPassword");
-		});
-		
-		archivo.add(item);
-		archivo.add(item1);
-		archivo.add(item8);
-		usuario.add(item2);
-		usuario.add(item3);
-		usuario.add(item4);
-		Ayuda.add(item5);
-		Ayuda.add(item6);
-		Ayuda.add(item7);
-		
-		menu.add(Ayuda);
-		menu.add(archivo);
-		menu.add(usuario);
 		this.setVisible(true);
-		this.setJMenuBar(menu);
-		this.add(menu);
 		this.repaint();
 	}
 	
@@ -119,7 +70,7 @@ public class Ventana extends JFrame {
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		contenedor.setBackground(Color.DARK_GRAY);
-		contenedor.setSize(600,554);
+		contenedor.setSize(600,636);
 		contenedor.setLocation(0,23);
 		contenedor.setLayout(null);
 		this.add(contenedor);
@@ -249,15 +200,11 @@ public class Ventana extends JFrame {
 		no_cuenta.setSize(250, 90);
 		no_cuenta.setBackground(null);
 		no_cuenta.setLocation(180,475);
+		no_cuenta.setEnabled(true);
 		no_cuenta.setForeground(Color.WHITE);
 		no_cuenta.setFont(new  Font("Arial",Font.ROMAN_BASELINE,16));
 		contenedor.add(no_cuenta);
 		
-		no_cuenta.addActionListener(e->{
-			
-			this.router("users");
-			
-		});
 		
 		
 		acceder.addActionListener(new ActionListener() {
@@ -310,8 +257,6 @@ public class Ventana extends JFrame {
 	
 	public void registro() {
 
-	
-		
 		//contenedor de registro
 		JPanel register_conteneiner = new JPanel();
 		register_conteneiner.setSize(600,600);
@@ -490,7 +435,7 @@ public class Ventana extends JFrame {
       //boton aceptar
   		JButton accederB= new JButton();
   		accederB.setText("Aceptar");
-  		accederB.setSize(500, 90);
+  		accederB.setSize(500, 70);
   		accederB.setBackground(Color.WHITE);
   		accederB.setFont(new  Font("Arial",Font.ROMAN_BASELINE,22));
   		accederB.setBorder(new LineBorder(Color.BLACK, 6, true));
@@ -537,6 +482,158 @@ public class Ventana extends JFrame {
 
         register_conteneiner.repaint();		
 	}	
+	//añadir
+	public void recuperacionDeCuenta() {
+
+	    /* PANEL IZQUIERDO (formulario) */
+	    JPanel contenedor = new JPanel();
+	    contenedor.setOpaque(true);
+	    contenedor.setBackground(Color.DARK_GRAY);
+	    contenedor.setSize(600, 636);
+	    contenedor.setLocation(0, 23);
+	    contenedor.setLayout(null);
+	    this.add(contenedor);
+
+	    /* PANEL DERECHO (logo / branding) */
+	    JPanel contenedor2 = new JPanel();
+	    contenedor2.setOpaque(true);
+	    contenedor2.setBackground(Color.BLACK);
+	    contenedor2.setSize(600, 554);
+	    contenedor2.setLocation(600, 23);
+	    contenedor2.setLayout(null);
+	    this.add(contenedor2);
+
+	    /* ICONO */
+	    JLabel icono = new JLabel(new ImageIcon("icon.PNG"));
+	    icono.setBounds(100, 102, 350, 180);
+	    contenedor2.add(icono);
+
+	    /* MARCA CODEX */
+	    JLabel CODEX = new JLabel();
+	    CODEX.setText("< CodeX >");
+	    CODEX.setSize(200, 40);
+	    CODEX.setOpaque(true);
+	    CODEX.setBackground(null);
+	    CODEX.setForeground(Color.WHITE);
+	    CODEX.setLocation(180, 260);
+	    CODEX.setFont(new Font("Arial", Font.ITALIC, 40));
+	    contenedor2.add(CODEX);
+
+	    contenedor2.repaint();
+	    contenedor2.revalidate();
+
+	    /* TITULO */
+	    JLabel title_recuperacion = new JLabel();
+	    title_recuperacion.setText("< RECUPERAR CUENTA >");
+	    title_recuperacion.setSize(360, 25);
+	    title_recuperacion.setOpaque(true);
+	    title_recuperacion.setBackground(null);
+	    title_recuperacion.setForeground(Color.WHITE);
+	    title_recuperacion.setLocation(130, 62);
+	    title_recuperacion.setFont(new Font("Arial", Font.ITALIC, 28));
+	    contenedor.add(title_recuperacion);
+
+	    /* INSTRUCCIONES */
+	    JLabel instrucciones = new JLabel();
+	    instrucciones.setText("Ingresa tus datos para recuperar tu cuenta");
+	    instrucciones.setSize(420, 20);
+	    instrucciones.setOpaque(true);
+	    instrucciones.setBackground(null);
+	    instrucciones.setForeground(Color.WHITE);
+	    instrucciones.setLocation(160, 105);
+	    instrucciones.setFont(new Font("Arial", Font.ITALIC, 14));
+	    contenedor.add(instrucciones);
+
+	    /* CORREO ELECTRONICO */
+	    // Etiqueta
+	    JLabel correoT = new JLabel();
+	    correoT.setText("Correo electrónico");
+	    correoT.setSize(350, 15);
+	    correoT.setOpaque(true);
+	    correoT.setBackground(null);
+	    correoT.setForeground(Color.WHITE);
+	    correoT.setLocation(20, 154);
+	    correoT.setFont(new Font("Arial", Font.ITALIC, 15));
+	    contenedor.add(correoT);
+	    // Campo de texto
+	    JTextField correo = new JTextField();
+	    correo.setSize(550, 30);
+	    correo.setLocation(20, 170);
+	    correo.setBackground(Color.WHITE);
+	    correo.setFont(new Font("Arial", Font.BOLD, 16));
+	    contenedor.add(correo);
+
+	    /* NOMBRE DE USUARIO */
+	    // Etiqueta
+	    JLabel usernameT = new JLabel();
+	    usernameT.setText("Nombre de usuario");
+	    usernameT.setSize(350, 15);
+	    usernameT.setOpaque(true);
+	    usernameT.setBackground(null);
+	    usernameT.setForeground(Color.WHITE);
+	    usernameT.setLocation(20, 234);
+	    usernameT.setFont(new Font("Arial", Font.ITALIC, 15));
+	    contenedor.add(usernameT);
+	    // Campo de texto
+	    JTextField username = new JTextField();
+	    username.setSize(550, 30);
+	    username.setLocation(20, 250);
+	    username.setBackground(Color.WHITE);
+	    username.setFont(new Font("Arial", Font.BOLD, 16));
+	    contenedor.add(username);
+
+	    /* PREGUNTA DE SEGURIDAD */
+	    // Etiqueta de sección
+	    JLabel preguntaT = new JLabel();
+	    preguntaT.setText("Pregunta de seguridad");
+	    preguntaT.setSize(350, 15);
+	    preguntaT.setOpaque(true);
+	    preguntaT.setBackground(null);
+	    preguntaT.setForeground(Color.WHITE);
+	    preguntaT.setLocation(20, 310);
+	    preguntaT.setFont(new Font("Arial", Font.ITALIC, 15));
+	    contenedor.add(preguntaT);
+	    // Texto con la pregunta de ejemplo
+	    JLabel preguntaEjemplo = new JLabel();
+	    preguntaEjemplo.setText("¿Cuál es el nombre de tu primera mascota?");
+	    preguntaEjemplo.setSize(420, 20);
+	    preguntaEjemplo.setOpaque(true);
+	    preguntaEjemplo.setBackground(null);
+	    preguntaEjemplo.setForeground(Color.LIGHT_GRAY);
+	    preguntaEjemplo.setLocation(20, 328);
+	    preguntaEjemplo.setFont(new Font("Arial", Font.ITALIC, 13));
+	    contenedor.add(preguntaEjemplo);
+	    // Campo de respuesta
+	    JTextField respuesta = new JTextField();
+	    respuesta.setSize(550, 30);
+	    respuesta.setLocation(20, 350);
+	    respuesta.setBackground(Color.WHITE);
+	    respuesta.setFont(new Font("Arial", Font.BOLD, 16));
+	    contenedor.add(respuesta);
+
+	    /* BOTON ENVIAR SOLICITUD */
+	    JButton enviar = new JButton();
+	    enviar.setText("Enviar solicitud");
+	    enviar.setSize(180, 50);
+	    enviar.setLocation(210, 420);
+	    enviar.setFont(new Font("Arial", Font.PLAIN, 16));
+	    enviar.setBorder(new LineBorder(Color.WHITE, 6, false));
+	    contenedor.add(enviar);
+
+	    /* BOTON VOLVER AL INICIO */
+	    JButton volver = new JButton();
+	    volver.setText("Volver al inicio de sesión");
+	    volver.setSize(260, 50);
+	    volver.setBackground(null);
+	    volver.setLocation(170, 490);
+	    volver.setEnabled(true);
+	    volver.setForeground(Color.WHITE);
+	    volver.setFont(new Font("Arial", Font.PLAIN, 16));
+	    contenedor.add(volver);
+
+	    contenedor.repaint();
+	    contenedor.revalidate();
+	}
 	
 	public void users() {
 		JPanel users =new JPanel();
@@ -1476,7 +1573,6 @@ public class Ventana extends JFrame {
 		JMenuItem item8 =new JMenuItem("recuperacion de cuenta");
 		JMenu usuario =new JMenu("Usuarios");
 		JMenuItem item2 =new JMenuItem("Alta");
-		JMenuItem item3 =new JMenuItem("Baja");
 		JMenuItem item4 =new JMenuItem("Consultar");
 		JMenu Ayuda =new JMenu("Ayuda");
 		JMenuItem item5 =new JMenuItem("¿Cómo crear un usuario?");
@@ -1507,9 +1603,6 @@ public class Ventana extends JFrame {
 		item2.addActionListener(e->{
 			router("alta");
 		});
-		item3.addActionListener(e->{
-			router("baja");
-		});
 		item4.addActionListener(e->{
 			router("consultar");
 		});
@@ -1518,7 +1611,6 @@ public class Ventana extends JFrame {
 		archivo.add(item1);
 		archivo.add(item8);
 		usuario.add(item2);
-		usuario.add(item3);
 		usuario.add(item4);
 		Ayuda.add(item5);
 		Ayuda.add(item6);
@@ -1531,6 +1623,190 @@ public class Ventana extends JFrame {
 		this.setJMenuBar(menu);
 		this.add(menu);
 		this.repaint();
+	}
+	
+	public void ayudaAcceso() {
+
+	    // ── Panel principal ───────────────────────────────────────────────────────
+	    JPanel panelAyuda = new JPanel();
+	    panelAyuda.setLayout(null);
+	    panelAyuda.setBounds(0, 23, 600, 636);
+	    panelAyuda.setBackground(Color.DARK_GRAY);
+
+	    // ── Título de la ventana ──────────────────────────────────────────────────
+	    JLabel lblTitulo = new JLabel(
+	        "<html><div style='text-align:center;'>Ayuda – Acceso al Sistema</div></html>"
+	    );
+	    lblTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 22));
+	    lblTitulo.setForeground(Color.WHITE);
+	    lblTitulo.setBounds(0, 18, 600, 28);
+
+	    // ── Descripción introductoria ─────────────────────────────────────────────
+	    JLabel lblIntro = new JLabel(
+	        "<html><div style='text-align:center;'>En esta ventana podrás iniciar sesión en el sistema.<br>"
+	        + "A continuación se explica cómo utilizar cada campo del formulario.</div></html>"
+	    );
+	    lblIntro.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblIntro.setForeground(new Color(211, 211, 211));
+	    lblIntro.setBounds(30, 52, 540, 40);
+
+	    // ── Separador 1 ───────────────────────────────────────────────────────────
+	    JLabel sep1 = new JLabel();
+	    sep1.setOpaque(true);
+	    sep1.setBackground(Color.GRAY);
+	    sep1.setBounds(30, 100, 540, 2);
+
+	    // ── Sección 1: Nombre de usuario ──────────────────────────────────────────
+	    JLabel lblUsuarioTitulo = new JLabel(
+	        "<html><div style='text-align:center;'>1. Nombre de Usuario</div></html>"
+	    );
+	    lblUsuarioTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblUsuarioTitulo.setForeground(Color.WHITE);
+	    lblUsuarioTitulo.setBounds(0, 110, 600, 22);
+
+	    JLabel lblUsuarioDesc = new JLabel(
+	        "<html><div style='text-align:center;'>Introduce tu nombre de usuario registrado en el sistema.<br>"
+	        + "El campo distingue entre mayúsculas y minúsculas, así que escríbelo<br>"
+	        + "exactamente como fue creado durante el registro.</div></html>"
+	    );
+	    lblUsuarioDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblUsuarioDesc.setForeground(new Color(211, 211, 211));
+	    lblUsuarioDesc.setBounds(30, 138, 540, 50);
+
+	    // ── Separador 2 ───────────────────────────────────────────────────────────
+	    JLabel sep2 = new JLabel();
+	    sep2.setOpaque(true);
+	    sep2.setBackground(Color.GRAY);
+	    sep2.setBounds(30, 196, 540, 2);
+
+	    // ── Sección 2: Contraseña ─────────────────────────────────────────────────
+	    JLabel lblContraseniaTitulo = new JLabel(
+	        "<html><div style='text-align:center;'>2. Contraseña</div></html>"
+	    );
+	    lblContraseniaTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblContraseniaTitulo.setForeground(Color.WHITE);
+	    lblContraseniaTitulo.setBounds(0, 206, 600, 22);
+
+	    JLabel lblContraseniaDesc = new JLabel(
+	        "<html><div style='text-align:center;'>Escribe tu contraseña personal en este campo.<br>"
+	        + "Los caracteres se ocultarán por seguridad. Asegúrate de no tener<br>"
+	        + "activado el bloqueo de mayúsculas antes de introducirla.</div></html>"
+	    );
+	    lblContraseniaDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblContraseniaDesc.setForeground(new Color(211, 211, 211));
+	    lblContraseniaDesc.setBounds(30, 234, 540, 50);
+
+	    // ── Separador 3 ───────────────────────────────────────────────────────────
+	    JLabel sep3 = new JLabel();
+	    sep3.setOpaque(true);
+	    sep3.setBackground(Color.GRAY);
+	    sep3.setBounds(30, 292, 540, 2);
+
+	    // ── Sección 3: Recordarme ─────────────────────────────────────────────────
+	    JLabel lblRecordarTitulo = new JLabel(
+	        "<html><div style='text-align:center;'>3. Recordarme</div></html>"
+	    );
+	    lblRecordarTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblRecordarTitulo.setForeground(Color.WHITE);
+	    lblRecordarTitulo.setBounds(0, 302, 600, 22);
+
+	    JLabel lblRecordarDesc = new JLabel(
+	        "<html><div style='text-align:center;'>Activa esta casilla si deseas que el sistema recuerde<br>"
+	        + "tus credenciales en este equipo. No se recomienda en ordenadores<br>"
+	        + "compartidos o de uso público por razones de seguridad.</div></html>"
+	    );
+	    lblRecordarDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblRecordarDesc.setForeground(new Color(211, 211, 211));
+	    lblRecordarDesc.setBounds(30, 330, 540, 50);
+
+	    // ── Separador 4 ───────────────────────────────────────────────────────────
+	    JLabel sep4 = new JLabel();
+	    sep4.setOpaque(true);
+	    sep4.setBackground(Color.GRAY);
+	    sep4.setBounds(30, 388, 540, 2);
+
+	    // ── Sección 4: ¿Olvidaste tu contraseña? ─────────────────────────────────
+	    JLabel lblOlvideTitulo = new JLabel(
+	        "<html><div style='text-align:center;'>4. ¿Olvidaste tu Contraseña?</div></html>"
+	    );
+	    lblOlvideTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblOlvideTitulo.setForeground(Color.WHITE);
+	    lblOlvideTitulo.setBounds(0, 398, 600, 22);
+
+	    JLabel lblOlvideDesc = new JLabel(
+	        "<html><div style='text-align:center;'>Si no recuerdas tu contraseña, haz clic en el enlace<br>"
+	        + "\"¿Olvidaste tu contraseña?\" para iniciar el proceso de recuperación.<br>"
+	        + "Se te enviará un correo con instrucciones para restablecerla.</div></html>"
+	    );
+	    lblOlvideDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblOlvideDesc.setForeground(new Color(211, 211, 211));
+	    lblOlvideDesc.setBounds(30, 426, 540, 50);
+
+	    // ── Separador 5 ───────────────────────────────────────────────────────────
+	    JLabel sep5 = new JLabel();
+	    sep5.setOpaque(true);
+	    sep5.setBackground(Color.GRAY);
+	    sep5.setBounds(30, 484, 540, 2);
+
+	    // ── Sección 5: Botón Aceptar ──────────────────────────────────────────────
+	    JLabel lblAceptarTitulo = new JLabel(
+	        "<html><div style='text-align:center;'>5. Botón Aceptar</div></html>"
+	    );
+	    lblAceptarTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblAceptarTitulo.setForeground(Color.WHITE);
+	    lblAceptarTitulo.setBounds(0, 494, 600, 22);
+
+	    JLabel lblAceptarDesc = new JLabel(
+	        "<html><div style='text-align:center;'>Pulsa «Aceptar» una vez completados los campos para<br>"
+	        + "verificar tus credenciales e iniciar sesión en el sistema.</div></html>"
+	    );
+	    lblAceptarDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblAceptarDesc.setForeground(new Color(211, 211, 211));
+	    lblAceptarDesc.setBounds(30, 522, 540, 40);
+
+	    // ── Separador visual blanco (antes del consejo de seguridad) ──────────────
+	    JLabel sepTip = new JLabel();
+	    sepTip.setOpaque(true);
+	    sepTip.setBackground(Color.WHITE);
+	    sepTip.setBounds(30, 570, 540, 2);
+
+	    // ── Consejo de seguridad ──────────────────────────────────────────────────
+	    JLabel lblConsejo = new JLabel(
+	        "<html><div style='text-align:center;'>"
+	        + "<b>Consejo de seguridad:</b> No compartas tu contraseña con nadie.<br>"
+	        + "Cierra sesión siempre al terminar, especialmente en equipos compartidos.<br>"
+	        + "Si sospechas que tu cuenta ha sido comprometida, cámbiala de inmediato."
+	        + "</div></html>"
+	    );
+	    lblConsejo.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblConsejo.setForeground(new Color(211, 211, 211));
+	    lblConsejo.setBounds(30, 578, 540, 50);
+
+	    // ── Añadir todos los componentes al panel ─────────────────────────────────
+	    panelAyuda.add(lblTitulo);
+	    panelAyuda.add(lblIntro);
+	    panelAyuda.add(sep1);
+	    panelAyuda.add(lblUsuarioTitulo);
+	    panelAyuda.add(lblUsuarioDesc);
+	    panelAyuda.add(sep2);
+	    panelAyuda.add(lblContraseniaTitulo);
+	    panelAyuda.add(lblContraseniaDesc);
+	    panelAyuda.add(sep3);
+	    panelAyuda.add(lblRecordarTitulo);
+	    panelAyuda.add(lblRecordarDesc);
+	    panelAyuda.add(sep4);
+	    panelAyuda.add(lblOlvideTitulo);
+	    panelAyuda.add(lblOlvideDesc);
+	    panelAyuda.add(sep5);
+	    panelAyuda.add(lblAceptarTitulo);
+	    panelAyuda.add(lblAceptarDesc);
+	    panelAyuda.add(sepTip);
+	    panelAyuda.add(lblConsejo);
+
+	    // ── Adjuntar panel al contenedor padre y refrescar ────────────────────────
+	    this.add(panelAyuda);
+	    this.revalidate();
+	    this.repaint();
 	}
 	
 	public void router(String referencia) {
@@ -1548,27 +1824,24 @@ public class Ventana extends JFrame {
 			this.login();
 		}
 		if(referencia.equals("recuperacion de cuenta")) {
-			this.recovery_password();
+			this.recuperacionDeCuenta();
 		}
 		
 		if(referencia.equals("createAccount")) {
-			this.createAccount();
+			this.ayudaCreacionUsuario();
 		}
 		if(referencia.equals("sistemAcces")) {
-			this.sistemAcces();
+			this.ayudaAcceso();
 		}
 		if(referencia.equals("forgetPassword")) {
-			this.forgetPassword();
+			this.recuperacionDeContrasena();
 		}
 
 		if(referencia.equals("alta")) {
-			this.Alta();
-		}
-		if(referencia.equals("baja")) {
-			this.Baja();
+			this.altaUsuario();
 		}
 		if(referencia.equals("consultar")) {
-			this.Consultar();
+			this.consultaUsuario();
 		}
 		
 		this.setVisible(true);
@@ -1577,134 +1850,671 @@ public class Ventana extends JFrame {
 		
 	}
 	
-	public void recovery_password()
-	{
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255)); 
-		panel.setLocation(0, 0);
-		panel.setLayout(null);
-		panel.setSize(1000, 600); 
-		
-		JLabel lblNewLabel = new JLabel("RECUPERACION DE CUENTA");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(lblNewLabel);
-	
+	public void recuperacionDeContrasena() {
 
-		
-	
-		
-		 
-		
-		this.add(panel);
-	}
-	
-	public void createAccount() {
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255)); 
-		panel.setLocation(0, 0);
-		panel.setLayout(null);
-		panel.setSize(1000, 600); 
-		
-		JLabel lblNewLabel = new JLabel("CREAR CUENTA");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(lblNewLabel);
-		
-		this.add(panel);
+	    // ── Configuración general de la ventana ──────────────────
+	    this.getContentPane().removeAll();
+	    this.setLayout(null);
+	    this.setSize(600, 636);
+	    this.setLocationRelativeTo(null);
+	    //this.setResizable(false);
 
-	}
-	
-	public void sistemAcces() {
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255)); 
-		panel.setLocation(0, 0);
-		panel.setLayout(null);
-		panel.setSize(1000, 600); 
-		
-		JLabel lblNewLabel = new JLabel("Acceder al sistema");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(lblNewLabel);
-		
-		this.add(panel);
+	    // ════════════════════════════════════════════════════════
+	    //  PANEL IZQUIERDO  –  Formulario (DARK_GRAY, 600 x 636)
+	    // ════════════════════════════════════════════════════════
+	    JPanel panelForm = new JPanel();
+	    panelForm.setLayout(null);
+	    panelForm.setBackground(Color.DARK_GRAY);
+	    panelForm.setBounds(0, 23, 600, 636);
+	    this.add(panelForm);
 
-	}
-	
-	public void forgetPassword() {
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255)); 
-		panel.setLocation(0, 0);
-		panel.setLayout(null);
-		panel.setSize(1000, 600); 
-		
-		JLabel lblNewLabel = new JLabel("contraseña olvidada");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(lblNewLabel);	
-		
-		this.add(panel);
+	    // ── Título ───────────────────────────────────────────────
+	    JLabel lblTitulo = new JLabel("< RECUPERAR CONTRASEÑA >");
+	    lblTitulo.setFont(new Font("Arial", Font.ITALIC, 30));
+	    lblTitulo.setForeground(Color.WHITE);
+	    lblTitulo.setBounds(40, 30, 520, 45);
+	    panelForm.add(lblTitulo);
 
+	    // ── Instrucción ──────────────────────────────────────────
+	    JLabel lblInstruccion = new JLabel("Ingresa tu correo para recibir un código de recuperación.");
+	    lblInstruccion.setFont(new Font("Arial", Font.PLAIN, 13));
+	    lblInstruccion.setForeground(Color.LIGHT_GRAY);
+	    lblInstruccion.setBounds(40, 82, 520, 20);
+	    panelForm.add(lblInstruccion);
+
+	    // ── SECCIÓN 1: Correo / Usuario ─────────────────────────
+	    JLabel lblCorreo = new JLabel("Correo o usuario:");
+	    lblCorreo.setFont(new Font("Arial", Font.BOLD, 14));
+	    lblCorreo.setForeground(Color.WHITE);
+	    lblCorreo.setBounds(40, 120, 200, 20);
+	    panelForm.add(lblCorreo);
+
+	    JTextField txtCorreo = new JTextField();
+	    txtCorreo.setFont(new Font("Arial", Font.PLAIN, 14));
+	    txtCorreo.setBackground(Color.DARK_GRAY);
+	    txtCorreo.setForeground(Color.WHITE);
+	    txtCorreo.setCaretColor(Color.WHITE);
+	    txtCorreo.setBorder(new LineBorder(Color.WHITE, 2));
+	    txtCorreo.setBounds(40, 145, 520, 35);
+	    panelForm.add(txtCorreo);
+
+	    // ── Botón "Enviar código" ───────────────────────────────
+	    JButton btnEnviar = new JButton("Enviar código");
+	    btnEnviar.setFont(new Font("Arial", Font.BOLD, 15));
+	    btnEnviar.setForeground(Color.WHITE);
+	    btnEnviar.setBackground(Color.DARK_GRAY);
+	    btnEnviar.setBorder(new LineBorder(Color.WHITE, 6));
+	    btnEnviar.setBounds(40, 198, 520, 40);
+	    panelForm.add(btnEnviar);
+
+
+	    // ── SECCIÓN 2: Código de recuperación ───────────────────
+	    JLabel lblSeccion2 = new JLabel("Código de recuperación:");
+	    lblSeccion2.setFont(new Font("Arial", Font.BOLD, 14));
+	    lblSeccion2.setForeground(Color.WHITE);
+	    lblSeccion2.setBounds(40, 270, 250, 20);
+	    panelForm.add(lblSeccion2);
+
+	    JTextField txtCodigo = new JTextField();
+	    txtCodigo.setFont(new Font("Arial", Font.PLAIN, 14));
+	    txtCodigo.setBackground(Color.DARK_GRAY);
+	    txtCodigo.setForeground(Color.WHITE);
+	    txtCodigo.setCaretColor(Color.WHITE);
+	    txtCodigo.setBorder(new LineBorder(Color.WHITE, 2));
+	    txtCodigo.setBounds(40, 295, 520, 35);
+	    panelForm.add(txtCodigo);
+
+	    // ── SECCIÓN 3: Nueva contraseña ─────────────────────────
+	    JLabel lblNuevaPass = new JLabel("Nueva contraseña:");
+	    lblNuevaPass.setFont(new Font("Arial", Font.BOLD, 14));
+	    lblNuevaPass.setForeground(Color.WHITE);
+	    lblNuevaPass.setBounds(40, 348, 200, 20);
+	    panelForm.add(lblNuevaPass);
+
+	    JPasswordField txtNuevaPass = new JPasswordField();
+	    txtNuevaPass.setFont(new Font("Arial", Font.PLAIN, 14));
+	    txtNuevaPass.setBackground(Color.DARK_GRAY);
+	    txtNuevaPass.setForeground(Color.WHITE);
+	    txtNuevaPass.setCaretColor(Color.WHITE);
+	    txtNuevaPass.setBorder(new LineBorder(Color.WHITE, 2));
+	    txtNuevaPass.setBounds(40, 373, 520, 35);
+	    panelForm.add(txtNuevaPass);
+
+	    // ── SECCIÓN 4: Confirmar nueva contraseña ───────────────
+	    JLabel lblConfirmarPass = new JLabel("Confirmar nueva contraseña:");
+	    lblConfirmarPass.setFont(new Font("Arial", Font.BOLD, 14));
+	    lblConfirmarPass.setForeground(Color.WHITE);
+	    lblConfirmarPass.setBounds(40, 426, 280, 20);
+	    panelForm.add(lblConfirmarPass);
+
+	    JPasswordField txtConfirmarPass = new JPasswordField();
+	    txtConfirmarPass.setFont(new Font("Arial", Font.PLAIN, 14));
+	    txtConfirmarPass.setBackground(Color.DARK_GRAY);
+	    txtConfirmarPass.setForeground(Color.WHITE);
+	    txtConfirmarPass.setCaretColor(Color.WHITE);
+	    txtConfirmarPass.setBorder(new LineBorder(Color.WHITE, 2));
+	    txtConfirmarPass.setBounds(40, 451, 520, 35);
+	    panelForm.add(txtConfirmarPass);
+
+	    // ── Botón "Actualizar contraseña" ───────────────────────
+	    JButton btnActualizar = new JButton("Actualizar contraseña");
+	    btnActualizar.setFont(new Font("Arial", Font.BOLD, 15));
+	    btnActualizar.setForeground(Color.WHITE);
+	    btnActualizar.setBackground(Color.DARK_GRAY);
+	    btnActualizar.setBorder(new LineBorder(Color.WHITE, 6));
+	    btnActualizar.setBounds(40, 505, 520, 40);
+	    panelForm.add(btnActualizar);
+
+
+
+	    // ════════════════════════════════════════════════════════
+	    //  ACTION LISTENERS
+	    // ════════════════════════════════════════════════════════
+
+	    // ── Listener: Enviar código ─────────────────────────────
+	    btnEnviar.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	            String correo = txtCorreo.getText().trim();
+
+	            if (correo.isEmpty()) {
+	                // ✗ Campo vacío → borde ROJO
+	                txtCorreo.setBorder(new LineBorder(Color.RED, 2));
+	                JOptionPane.showMessageDialog(
+	                        null,
+	                        "Por favor ingresa tu correo o usuario.",
+	                        "Campo requerido",
+	                        JOptionPane.WARNING_MESSAGE);
+	            } else {
+	                // ✓ Campo correcto → borde VERDE
+	                txtCorreo.setBorder(new LineBorder(Color.GREEN, 2));
+	                JOptionPane.showMessageDialog(
+	                        null,
+	                        "Código de recuperación enviado a: " + correo,
+	                        "Código enviado",
+	                        JOptionPane.INFORMATION_MESSAGE);
+	            }
+	        }
+	    });
+
+	    // ── Listener: Actualizar contraseña ─────────────────────
+	    btnActualizar.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	            String codigo       = txtCodigo.getText().trim();
+	            String nuevaPass    = new String(txtNuevaPass.getPassword()).trim();
+	            String confirmaPass = new String(txtConfirmarPass.getPassword()).trim();
+
+	            boolean valido = true;
+
+	            // Validar código
+	            if (codigo.isEmpty()) {
+	                txtCodigo.setBorder(new LineBorder(Color.RED, 2));
+	                valido = false;
+	            } else {
+	                txtCodigo.setBorder(new LineBorder(Color.GREEN, 2));
+	            }
+
+	            // Validar nueva contraseña
+	            if (nuevaPass.isEmpty()) {
+	                txtNuevaPass.setBorder(new LineBorder(Color.RED, 2));
+	                valido = false;
+	            } else {
+	                txtNuevaPass.setBorder(new LineBorder(Color.GREEN, 2));
+	            }
+
+	            // Validar confirmación de contraseña
+	            if (confirmaPass.isEmpty()) {
+	                txtConfirmarPass.setBorder(new LineBorder(Color.RED, 2));
+	                valido = false;
+	            } else if (!nuevaPass.equals(confirmaPass)) {
+	                // ✗ Las contraseñas no coinciden → ambas en ROJO
+	                txtNuevaPass.setBorder(new LineBorder(Color.RED, 2));
+	                txtConfirmarPass.setBorder(new LineBorder(Color.RED, 2));
+	                JOptionPane.showMessageDialog(
+	                        null,
+	                        "Las contraseñas no coinciden. Inténtalo de nuevo.",
+	                        "Error de validación",
+	                        JOptionPane.ERROR_MESSAGE);
+	                return;
+	            } else {
+	                txtConfirmarPass.setBorder(new LineBorder(Color.GREEN, 2));
+	            }
+
+	            if (!valido) {
+	                JOptionPane.showMessageDialog(
+	                        null,
+	                        "Por favor completa todos los campos.",
+	                        "Campos requeridos",
+	                        JOptionPane.WARNING_MESSAGE);
+	                return;
+	            }
+
+	            // ✓ Todo correcto
+	            JOptionPane.showMessageDialog(
+	                    null,
+	                    "¡Contraseña actualizada con éxito! Ya puedes iniciar sesión.",
+	                    "Éxito",
+	                    JOptionPane.INFORMATION_MESSAGE);
+	            login(); // Regresar al login
+	        }
+	    });
+
+	    this.menuBar();
+	    this.revalidate();
+	    this.repaint();
 	}
 	
-	public void Alta() {
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255)); 
-		panel.setLocation(0, 0);
-		panel.setLayout(null);
-		panel.setSize(1000, 600); 
-		
-		JLabel lblNewLabel = new JLabel("Alta");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(lblNewLabel);	
-		
-		this.add(panel);
+	public void altaUsuario() {
+
+	    // ── 1. PANEL PRINCIPAL ────────────────────────────────────────
+	    JPanel panelPrincipal = new JPanel();
+	    panelPrincipal.setLayout(null);
+	    panelPrincipal.setBackground(Color.DARK_GRAY);
+	    panelPrincipal.setPreferredSize(new java.awt.Dimension(600, 636));
+	    panelPrincipal.setLocation(0, 23);
+
+	    // ── 2. TÍTULO ─────────────────────────────────────────────────
+	    JLabel lblTitulo = new JLabel("< ALTA DE USUARIO >");
+	    lblTitulo.setFont(new Font("Arial", Font.ITALIC, 30));
+	    lblTitulo.setForeground(Color.WHITE);
+	    lblTitulo.setBounds(0, 55, 600, 45);
+	    panelPrincipal.add(lblTitulo);
+
+	    // ── 3. NOMBRE ─────────────────────────────────────────────────
+	    JLabel lblNombre = new JLabel("Nombre");
+	    lblNombre.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblNombre.setForeground(Color.WHITE);
+	    lblNombre.setBounds(20, 120, 200, 20);
+	    panelPrincipal.add(lblNombre);
+
+	    JTextField txtNombre = new JTextField();
+	    txtNombre.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtNombre.setBackground(Color.WHITE);
+	    txtNombre.setBounds(20, 140, 550, 30);
+	    panelPrincipal.add(txtNombre);
+
+	    // ── 4. APELLIDO ───────────────────────────────────────────────
+	    JLabel lblApellido = new JLabel("Apellido");
+	    lblApellido.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblApellido.setForeground(Color.WHITE);
+	    lblApellido.setBounds(20, 200, 200, 20);
+	    panelPrincipal.add(lblApellido);
+
+	    JTextField txtApellido = new JTextField();
+	    txtApellido.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtApellido.setBackground(Color.WHITE);
+	    txtApellido.setBounds(20, 220, 550, 30);
+	    panelPrincipal.add(txtApellido);
+
+	    // ── 5. NOMBRE DE USUARIO ──────────────────────────────────────
+	    JLabel lblUsuario = new JLabel("Nombre de usuario");
+	    lblUsuario.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblUsuario.setForeground(Color.WHITE);
+	    lblUsuario.setBounds(20, 280, 250, 20);
+	    panelPrincipal.add(lblUsuario);
+
+	    JTextField txtUsuario = new JTextField();
+	    txtUsuario.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtUsuario.setBackground(Color.WHITE);
+	    txtUsuario.setBounds(20, 300, 550, 30);
+	    panelPrincipal.add(txtUsuario);
+
+	    // ── 6. CORREO ELECTRÓNICO ─────────────────────────────────────
+	    JLabel lblCorreo = new JLabel("Correo electrónico");
+	    lblCorreo.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblCorreo.setForeground(Color.WHITE);
+	    lblCorreo.setBounds(20, 360, 250, 20);
+	    panelPrincipal.add(lblCorreo);
+
+	    JTextField txtCorreo = new JTextField();
+	    txtCorreo.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtCorreo.setBackground(Color.WHITE);
+	    txtCorreo.setBounds(20, 380, 550, 30);
+	    panelPrincipal.add(txtCorreo);
+
+	    // ── 7. CONTRASEÑA ─────────────────────────────────────────────
+	    JLabel lblContrasena = new JLabel("Contraseña");
+	    lblContrasena.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblContrasena.setForeground(Color.WHITE);
+	    lblContrasena.setBounds(20, 440, 200, 20);
+	    panelPrincipal.add(lblContrasena);
+
+	    JPasswordField txtContrasena = new JPasswordField();
+	    txtContrasena.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtContrasena.setBackground(Color.WHITE);
+	    txtContrasena.setBounds(20, 460, 550, 30);
+	    panelPrincipal.add(txtContrasena);
+
+	    // ── 8. CONFIRMAR CONTRASEÑA ───────────────────────────────────
+	    JLabel lblConfirmar = new JLabel("Confirmar contraseña");
+	    lblConfirmar.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblConfirmar.setForeground(Color.WHITE);
+	    lblConfirmar.setBounds(20, 510, 250, 20);
+	    panelPrincipal.add(lblConfirmar);
+
+	    JPasswordField txtConfirmar = new JPasswordField();
+	    txtConfirmar.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtConfirmar.setBackground(Color.WHITE);
+	    txtConfirmar.setBounds(20, 530, 550, 30);
+	    panelPrincipal.add(txtConfirmar);
+
+	    // ── 9. BOTÓN REGISTRAR ────────────────────────────────────────
+	    JButton btnRegistrar = new JButton("Registrar");
+	    btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 16));
+	    btnRegistrar.setForeground(Color.WHITE);
+	    btnRegistrar.setBackground(Color.DARK_GRAY);
+	    btnRegistrar.setBorder(new LineBorder(Color.WHITE, 6, false));
+	    btnRegistrar.setFocusPainted(false);
+	    btnRegistrar.setBounds(210, 590, 180, 50);
+	    panelPrincipal.add(btnRegistrar);
+
+	    //* ── 10. VENTANA PRINCIPAL ─────────────────────────────────────
+	    /*
+	    JFrame frame = new JFrame("Alta de Usuario");
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    frame.setResizable(false);
+	    frame.getContentPane().add(panelPrincipal);
+	    frame.pack();
+	    frame.setLocationRelativeTo(null);
+	    frame.setVisible(true);
+	    */
+	    panelPrincipal.repaint();
+	    panelPrincipal.revalidate();
+	    this.add(panelPrincipal);
 	}
 	
-	public void Baja() {
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255)); 
-		panel.setLocation(0, 0);
-		panel.setLayout(null);
-		panel.setSize(1000, 600); 
-		
-		JLabel lblNewLabel = new JLabel("Baja");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(lblNewLabel);	
-		
-		this.add(panel);
+	public void ayudaCreacionUsuario() {
+
+	    // ── Panel principal ──────────────────────────────────────────────────────
+	    JPanel panelAyuda = new JPanel();
+	    panelAyuda.setLayout(null);
+	    panelAyuda.setBackground(Color.DARK_GRAY);
+	    panelAyuda.setBounds(0, 23, 600, 636);
+
+	    // ── Título ───────────────────────────────────────────────────────────────
+	    JLabel lblTitulo = new JLabel(
+	        "<html><div style='text-align:center;'>&lt; AYUDA: CREAR USUARIO &gt;</div></html>"
+	    );
+	    lblTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 18));
+	    lblTitulo.setForeground(Color.WHITE);
+	    lblTitulo.setBounds(160, 18, 500, 30);
+
+
+	    // ── Texto introductorio ──────────────────────────────────────────────────
+	    JLabel lblIntro = new JLabel(
+	        "<html><div style='text-align:center; color:#D3D3D3;'>"
+	        + "A continuación se describe cada campo requerido para dar de alta un nuevo usuario."
+	        + "</div></html>"
+	    );
+	    lblIntro.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblIntro.setForeground(new Color(211, 211, 211));
+	    lblIntro.setBounds(50, 35, 500, 35);
+
+	    // ── Separador bajo el título ─────────────────────────────────────────────
+	    JLabel sepTitulo = new JLabel();
+	    sepTitulo.setOpaque(true);
+	    sepTitulo.setBackground(Color.WHITE);
+	    sepTitulo.setBounds(50, 60, 500, 2);
+	    
+	    // ════════════════════════════════════════════════════════════════════════
+	    //  SECCIÓN 1 – Nombre
+	    // ════════════════════════════════════════════════════════════════════════
+	    JLabel lblNombreTitulo = new JLabel("Nombre");
+	    lblNombreTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblNombreTitulo.setForeground(Color.WHITE);
+	    lblNombreTitulo.setBounds(50, 75, 500, 20);
+
+	    JLabel lblNombreDesc = new JLabel(
+	        "<html><div style='color:#D3D3D3;'>"
+	        + "Ingresa tu nombre de pila tal como aparece en tu identificación oficial. "
+	        + "Solo se permiten letras (sin números ni caracteres especiales). "
+	        + "Mínimo 2 caracteres, máximo 50."
+	        + "</div></html>"
+	    );
+	    lblNombreDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblNombreDesc.setForeground(new Color(211, 211, 211));
+	    lblNombreDesc.setBounds(50, 88, 500, 45);
+
+	    JLabel sepNombre = new JLabel();
+	    sepNombre.setOpaque(true);
+	    sepNombre.setBackground(Color.GRAY);
+	    sepNombre.setBounds(50, 128, 500, 2);
+
+	    // ════════════════════════════════════════════════════════════════════════
+	    //  SECCIÓN 2 – Apellido
+	    // ════════════════════════════════════════════════════════════════════════
+	    JLabel lblApellidoTitulo = new JLabel("Apellido");
+	    lblApellidoTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblApellidoTitulo.setForeground(Color.WHITE);
+	    lblApellidoTitulo.setBounds(50, 137, 500, 20);
+
+	    JLabel lblApellidoDesc = new JLabel(
+	        "<html><div style='color:#D3D3D3;'>"
+	        + "Ingresa tu apellido paterno (y materno si lo deseas). "
+	        + "Solo se permiten letras y espacios. "
+	        + "Mínimo 2 caracteres, máximo 50."
+	        + "</div></html>"
+	    );
+	    lblApellidoDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblApellidoDesc.setForeground(new Color(211, 211, 211));
+	    lblApellidoDesc.setBounds(50, 150, 500, 45);
+
+	    JLabel sepApellido = new JLabel();
+	    sepApellido.setOpaque(true);
+	    sepApellido.setBackground(Color.GRAY);
+	    sepApellido.setBounds(50, 200, 500, 2);
+
+	    // ════════════════════════════════════════════════════════════════════════
+	    //  SECCIÓN 3 – Nombre de usuario
+	    // ════════════════════════════════════════════════════════════════════════
+	    JLabel lblUsernameTitulo = new JLabel("Nombre de usuario");
+	    lblUsernameTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblUsernameTitulo.setForeground(Color.WHITE);
+	    lblUsernameTitulo.setBounds(50, 215, 500, 20);
+
+	    JLabel lblUsernameDesc = new JLabel(
+	        "<html><div style='color:#D3D3D3;'>"
+	        + "Elige un nombre de usuario único que te identifique en el sistema. "
+	        + "Puede contener letras, números y guiones bajos ( _ ). "
+	        + "Mínimo 4 caracteres, máximo 20. No debe estar en uso."
+	        + "</div></html>"
+	    );
+	    lblUsernameDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblUsernameDesc.setForeground(new Color(211, 211, 211));
+	    lblUsernameDesc.setBounds(50, 232, 500, 50);
+
+	    JLabel sepUsername = new JLabel();
+	    sepUsername.setOpaque(true);
+	    sepUsername.setBackground(Color.GRAY);
+	    sepUsername.setBounds(50, 280, 500, 2);
+
+	    // ════════════════════════════════════════════════════════════════════════
+	    //  SECCIÓN 4 – Correo electrónico
+	    // ════════════════════════════════════════════════════════════════════════
+	    JLabel lblCorreoTitulo = new JLabel("Correo electrónico");
+	    lblCorreoTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblCorreoTitulo.setForeground(Color.WHITE);
+	    lblCorreoTitulo.setBounds(50, 295, 500, 20);
+
+	    JLabel lblCorreoDesc = new JLabel(
+	        "<html><div style='color:#D3D3D3;'>"
+	        + "Proporciona una dirección de correo válida (ejemplo: usuario@dominio.com). "
+	        + "Se utilizará para notificaciones y recuperación de contraseña. "
+	        + "Debe ser única en el sistema."
+	        + "</div></html>"
+	    );
+	    lblCorreoDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblCorreoDesc.setForeground(new Color(211, 211, 211));
+	    lblCorreoDesc.setBounds(50, 310, 500, 50);
+
+	    JLabel sepCorreo = new JLabel();
+	    sepCorreo.setOpaque(true);
+	    sepCorreo.setBackground(Color.GRAY);
+	    sepCorreo.setBounds(50, 360, 500, 2);
+
+	    // ════════════════════════════════════════════════════════════════════════
+	    //  SECCIÓN 5 – Contraseña
+	    // ════════════════════════════════════════════════════════════════════════
+	    JLabel lblPasswordTitulo = new JLabel("Contraseña");
+	    lblPasswordTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblPasswordTitulo.setForeground(Color.WHITE);
+	    lblPasswordTitulo.setBounds(50, 375, 500, 20);
+
+	    JLabel lblPasswordDesc = new JLabel(
+	        "<html><div style='color:#D3D3D3;'>"
+	        + "Crea una contraseña segura. Debe contener al menos 8 caracteres, "
+	        + "una letra mayúscula, una letra minúscula, un número y un carácter especial "
+	        + "(por ejemplo: ! @ # $ %). Máximo 30 caracteres."
+	        + "</div></html>"
+	    );
+	    lblPasswordDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblPasswordDesc.setForeground(new Color(211, 211, 211));
+	    lblPasswordDesc.setBounds(50, 390, 500, 50);
+
+	    JLabel sepPassword = new JLabel();
+	    sepPassword.setOpaque(true);
+	    sepPassword.setBackground(Color.GRAY);
+	    sepPassword.setBounds(50, 445, 500, 2);
+
+	    // ════════════════════════════════════════════════════════════════════════
+	    //  SECCIÓN 6 – Confirmar contraseña
+	    // ════════════════════════════════════════════════════════════════════════
+	    JLabel lblConfirmTitulo = new JLabel("Confirmar contraseña");
+	    lblConfirmTitulo.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 14));
+	    lblConfirmTitulo.setForeground(Color.WHITE);
+	    lblConfirmTitulo.setBounds(50, 455, 500, 20);
+
+	    JLabel lblConfirmDesc = new JLabel(
+	        "<html><div style='color:#D3D3D3;'>"
+	        + "Vuelve a ingresar la misma contraseña del campo anterior. "
+	        + "Ambas contraseñas deben coincidir exactamente para que el registro sea exitoso."
+	        + "</div></html>"
+	    );
+	    lblConfirmDesc.setFont(new Font("Arial", Font.ITALIC, 12));
+	    lblConfirmDesc.setForeground(new Color(211, 211, 211));
+	    lblConfirmDesc.setBounds(50, 470, 500, 45);
+
+	    JLabel sepConfirm = new JLabel();
+	    sepConfirm.setOpaque(true);
+	    sepConfirm.setBackground(Color.GRAY);
+	    sepConfirm.setBounds(50, 515, 500, 2);
+
+	    // ── Consejo final ────────────────────────────────────────────────────────
+	    JLabel lblConsejo = new JLabel(
+	        "<html><div style='text-align:center; color:#D3D3D3;'>"
+	        + "&#128274; Tip: Nunca compartas tu contraseña con nadie."
+	        + "</div></html>"
+	    );
+	    lblConsejo.setFont(new Font("Arial", Font.ITALIC, 11));
+	    lblConsejo.setForeground(new Color(211, 211, 211));
+	    lblConsejo.setBounds(160, 535, 500, 20);
+
+	    // ── Agregar componentes al panel ─────────────────────────────────────────
+	    panelAyuda.add(lblTitulo);
+	    panelAyuda.add(sepTitulo);
+	    panelAyuda.add(lblIntro);
+
+	    panelAyuda.add(lblNombreTitulo);
+	    panelAyuda.add(lblNombreDesc);
+	    panelAyuda.add(sepNombre);
+
+	    panelAyuda.add(lblApellidoTitulo);
+	    panelAyuda.add(lblApellidoDesc);
+	    panelAyuda.add(sepApellido);
+
+	    panelAyuda.add(lblUsernameTitulo);
+	    panelAyuda.add(lblUsernameDesc);
+	    panelAyuda.add(sepUsername);
+
+	    panelAyuda.add(lblCorreoTitulo);
+	    panelAyuda.add(lblCorreoDesc);
+	    panelAyuda.add(sepCorreo);
+
+	    panelAyuda.add(lblPasswordTitulo);
+	    panelAyuda.add(lblPasswordDesc);
+	    panelAyuda.add(sepPassword);
+
+	    panelAyuda.add(lblConfirmTitulo);
+	    panelAyuda.add(lblConfirmDesc);
+	    panelAyuda.add(sepConfirm);
+
+	    panelAyuda.add(lblConsejo);
+
+	    // ── Agregar panel al contenedor padre (this = ventana/frame actual) ──────
+	    this.add(panelAyuda);
+	    this.revalidate();
+	    this.repaint();
 	}
 	
-	public void Consultar() {
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255)); 
-		panel.setLocation(0, 0);
-		panel.setLayout(null);
-		panel.setSize(1000, 600); 
-		
-		JLabel lblNewLabel = new JLabel("Consultar");
-		lblNewLabel.setForeground(new Color(0, 0, 0));
-		lblNewLabel.setFont(new Font("Kefa", Font.PLAIN, 14));
-		lblNewLabel.setBounds(107, 35, 210, 26);
-		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
-		panel.add(lblNewLabel);	
-		
-		this.add(panel);
+	public void consultaUsuario() {
+
+	    // ── Panel principal ──────────────────────
+	    JPanel contenedor = new JPanel();
+	    contenedor.setLayout(null);
+	    contenedor.setBackground(Color.DARK_GRAY);
+	    contenedor.setBounds(0, 23, 600, 636);
+	    this.add(contenedor);
+
+	    // ── Título ───────────────────────────────
+	    JLabel lblTitulo = new JLabel("< CONSULTA DE USUARIO >");
+	    lblTitulo.setFont(new Font("Arial", Font.ITALIC, 30));
+	    lblTitulo.setForeground(Color.WHITE);
+	    lblTitulo.setBounds(0, 30, 600, 50);
+	    contenedor.add(lblTitulo);
+
+	    // ── Sección de búsqueda ──────────────────
+	    JLabel lblBuscar = new JLabel("Buscar usuario");
+	    lblBuscar.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblBuscar.setForeground(Color.WHITE);
+	    lblBuscar.setBounds(25, 110, 200, 25);
+	    contenedor.add(lblBuscar);
+
+	    JTextField txtBuscar = new JTextField();
+	    txtBuscar.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtBuscar.setBackground(Color.WHITE);
+	    txtBuscar.setBounds(25, 138, 550, 35);
+	    contenedor.add(txtBuscar);
+
+	    // ── Botón Buscar ─────────────────────────
+	    JButton btnBuscar = new JButton("Buscar");
+	    btnBuscar.setFont(new Font("Arial", Font.PLAIN, 16));
+	    btnBuscar.setForeground(Color.WHITE);
+	    btnBuscar.setBackground(Color.DARK_GRAY);
+	    btnBuscar.setBorder(new javax.swing.border.LineBorder(Color.WHITE, 6, false));
+	    btnBuscar.setFocusPainted(false);
+	    btnBuscar.setBounds(225, 190, 150, 40);
+	    contenedor.add(btnBuscar);
+
+	    // ── Sección de resultados ────────────────
+	    JLabel lblNombreText = new JLabel("Nombre");
+	    lblNombreText.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblNombreText.setForeground(Color.WHITE);
+	    lblNombreText.setBounds(25, 260, 200, 25);
+	    contenedor.add(lblNombreText);
+
+	    JTextField txtNombre = new JTextField();
+	    txtNombre.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtNombre.setBackground(Color.WHITE);
+	    txtNombre.setEditable(false);
+	    txtNombre.setBounds(25, 288, 550, 35);
+	    contenedor.add(txtNombre);
+
+	    JLabel lblApellidoText = new JLabel("Apellido");
+	    lblApellidoText.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblApellidoText.setForeground(Color.WHITE);
+	    lblApellidoText.setBounds(25, 340, 200, 25);
+	    contenedor.add(lblApellidoText);
+
+	    JTextField txtApellido = new JTextField();
+	    txtApellido.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtApellido.setBackground(Color.WHITE);
+	    txtApellido.setEditable(false);
+	    txtApellido.setBounds(25, 368, 550, 35);
+	    contenedor.add(txtApellido);
+
+	    JLabel lblUsuarioText = new JLabel("Nombre de usuario");
+	    lblUsuarioText.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblUsuarioText.setForeground(Color.WHITE);
+	    lblUsuarioText.setBounds(25, 420, 200, 25);
+	    contenedor.add(lblUsuarioText);
+
+	    JTextField txtUsuario = new JTextField();
+	    txtUsuario.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtUsuario.setBackground(Color.WHITE);
+	    txtUsuario.setEditable(false);
+	    txtUsuario.setBounds(25, 448, 550, 35);
+	    contenedor.add(txtUsuario);
+
+	    JLabel lblCorreoText = new JLabel("Correo electrónico");
+	    lblCorreoText.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblCorreoText.setForeground(Color.WHITE);
+	    lblCorreoText.setBounds(25, 500, 220, 25);
+	    contenedor.add(lblCorreoText);
+
+	    JTextField txtCorreo = new JTextField();
+	    txtCorreo.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtCorreo.setBackground(Color.WHITE);
+	    txtCorreo.setEditable(false);
+	    txtCorreo.setBounds(25, 528, 550, 35);
+	    contenedor.add(txtCorreo);
+
+	    JLabel lblEstadoText = new JLabel("Estado de la cuenta");
+	    lblEstadoText.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblEstadoText.setForeground(Color.WHITE);
+	    lblEstadoText.setBounds(25, 578, 220, 25);
+	    contenedor.add(lblEstadoText);
+
+	    JTextField txtEstado = new JTextField();
+	    txtEstado.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtEstado.setBackground(Color.WHITE);
+	    txtEstado.setEditable(false);
+	    txtEstado.setBounds(25, 606, 550, 35);
+	    contenedor.add(txtEstado);
+
+	    // ── Actualizar contenedor ────────────────
+	    contenedor.repaint();
+	    contenedor.revalidate();
 	}
 	
 	public void examen() {
@@ -2023,21 +2833,6 @@ public class Ventana extends JFrame {
 	
 	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
