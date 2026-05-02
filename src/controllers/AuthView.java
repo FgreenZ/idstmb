@@ -25,6 +25,7 @@ import models.AuthModel;
 
 public class AuthView {
 	
+	//private AuthModel =new AuthModel();
 
 	
 	public void login() {
@@ -167,6 +168,43 @@ public class AuthView {
 		acceder.setLocation(240,370);
 		acceder.setFont(new  Font("Arial",Font.ROMAN_BASELINE,16));
 		acceder.setBorder(new LineBorder(Color.WHITE, 6, false));
+		acceder.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        String contraseña_ingresada = new String(contraseña.getPassword());
+		        
+		        // 1. Instanciamos el modelo
+		        AuthModel modelo = new AuthModel();
+		        
+		        // 2. Le preguntamos a la base de datos si las credenciales son correctas
+		        boolean accesoConcedido = modelo.acces(username.getText(), contraseña_ingresada);
+
+		        // 3. Validamos la respuesta
+		        if(accesoConcedido) {
+		            contraseña.setBorder(new LineBorder(Color.GREEN, 4));
+		            username.setBorder(new LineBorder(Color.GREEN, 4));
+		            JOptionPane.showMessageDialog(
+		                    null, 
+		                    "Ingresando al sistema...", 
+		                    "Inicio de sesion", 
+		                    JOptionPane.INFORMATION_MESSAGE
+		            );
+		             ventana.dispose();
+		             registro(); // Te manda a la siguiente ventana
+		            
+		        } else {
+		            contraseña.setBorder(new LineBorder(Color.RED, 4));
+		            username.setBorder(new LineBorder(Color.RED, 4));
+		            JOptionPane.showMessageDialog(
+		                    null, 
+		                    "Contraseña o usuario incorrectos", 
+		                    "Error", 
+		                    JOptionPane.ERROR_MESSAGE // Cambié esto a ERROR_MESSAGE para que muestre el ícono de error
+		            );
+		        }
+		        
+		    }
+		});
 		contenedor.add(acceder);
 		
 		//aun no tienes cuenta?
@@ -184,39 +222,7 @@ public class AuthView {
 		});
 		contenedor.add(no_cuenta);
 		
-		
-		acceder.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String contraseña_ingresada =new String(contraseña.getPassword());
-				int mensaje_error =JOptionPane.ERROR_MESSAGE;
 
-				
-				if((contraseña_ingresada.equals(contraseña_correcta))&&(username.getText().equals(username_correcto))) {
-					contraseña.setBorder(new LineBorder(Color.GREEN, 4));
-					username.setBorder(new LineBorder(Color.GREEN, 4));
-					JOptionPane.showMessageDialog(
-						    null, 
-						    "Ingresando al sistema...", 
-						    "inicio de sesion", 
-						    JOptionPane.INFORMATION_MESSAGE
-					);
-					 ventana.dispose();
-					 registro();
-					
-				}else {
-					contraseña.setBorder(new LineBorder(Color.RED, 4));
-					username.setBorder(new LineBorder(Color.RED, 4));
-					JOptionPane.showMessageDialog(
-						    null, 
-						    "Contraseña o usuario incorrectos", 
-						    "Error", 
-						    JOptionPane.INFORMATION_MESSAGE
-					);
-
-				}
-			}
-		});
 		
 		
 		/*CONTRASEÑA OLVIDADA*/
@@ -483,3 +489,4 @@ public class AuthView {
 	}
 
 }
+
