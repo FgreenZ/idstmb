@@ -17,4 +17,9 @@ public class AuthController {
 		
 	}
 	
+	public void prueba() {
+		
+		login.altaUsuario();
+		
+	}
 }

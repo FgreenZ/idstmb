@@ -27,6 +27,144 @@ public class AuthView {
 	
 	//private AuthModel =new AuthModel();
 
+	public void altaUsuario() {
+
+		JFrame ventana=new JFrame();
+		ventana.setSize(600, 710);
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ventana.setLocationRelativeTo(null);
+		ventana.setBackground(Color.WHITE);
+		//this.setMinimumSize(new Dimension(1200,600));
+		//this.setMaximumSize(new Dimension(1200,600));
+		ventana.setTitle("Calculadora");
+		ventana.setLocation(100,100);
+		ventana.getContentPane().setBackground(Color.LIGHT_GRAY);
+		ventana.setLayout(new BorderLayout());
+	    ImageIcon icono = new ImageIcon("icono.png");
+	    ventana.setIconImage(icono.getImage());
+		
+	    // ── 1. PANEL PRINCIPAL ────────────────────────────────────────
+	    JPanel panelPrincipal = new JPanel();
+	    panelPrincipal.setLayout(null);
+	    panelPrincipal.setBackground(Color.DARK_GRAY);
+	    panelPrincipal.setPreferredSize(new java.awt.Dimension(600, 636));
+	    panelPrincipal.setLocation(0, 23);
+	    ventana.add(panelPrincipal);
+
+	    // ── 2. TÍTULO ─────────────────────────────────────────────────
+	    JLabel lblTitulo = new JLabel("< ALTA DE USUARIO >");
+	    lblTitulo.setFont(new Font("Arial", Font.ITALIC, 30));
+	    lblTitulo.setForeground(Color.WHITE);
+	    lblTitulo.setBounds(0, 55, 600, 45);
+	    panelPrincipal.add(lblTitulo);
+
+	    // ── 3. NOMBRE ─────────────────────────────────────────────────
+	    JLabel lblNombre = new JLabel("Nombre");
+	    lblNombre.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblNombre.setForeground(Color.WHITE);
+	    lblNombre.setBounds(20, 120, 200, 20);
+	    panelPrincipal.add(lblNombre);
+
+	    JTextField txtNombre = new JTextField();
+	    txtNombre.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtNombre.setBackground(Color.WHITE);
+	    txtNombre.setBounds(20, 140, 550, 30);
+	    panelPrincipal.add(txtNombre);
+
+	    // ── 4. APELLIDO ───────────────────────────────────────────────
+	    JLabel lblApellido = new JLabel("Apellido");
+	    lblApellido.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblApellido.setForeground(Color.WHITE);
+	    lblApellido.setBounds(20, 200, 200, 20);
+	    panelPrincipal.add(lblApellido);
+
+	    JTextField txtApellido = new JTextField();
+	    txtApellido.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtApellido.setBackground(Color.WHITE);
+	    txtApellido.setBounds(20, 220, 550, 30);
+	    panelPrincipal.add(txtApellido);
+
+	    // ── 5. NOMBRE DE USUARIO ──────────────────────────────────────
+	    JLabel lblUsuario = new JLabel("Nombre de usuario");
+	    lblUsuario.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblUsuario.setForeground(Color.WHITE);
+	    lblUsuario.setBounds(20, 280, 250, 20);
+	    panelPrincipal.add(lblUsuario);
+
+	    JTextField txtUsuario = new JTextField();
+	    txtUsuario.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtUsuario.setBackground(Color.WHITE);
+	    txtUsuario.setBounds(20, 300, 550, 30);
+	    panelPrincipal.add(txtUsuario);
+
+	    // ── 6. CORREO ELECTRÓNICO ─────────────────────────────────────
+	    JLabel lblCorreo = new JLabel("Correo electrónico");
+	    lblCorreo.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblCorreo.setForeground(Color.WHITE);
+	    lblCorreo.setBounds(20, 360, 250, 20);
+	    panelPrincipal.add(lblCorreo);
+	    
+	    
+	    JTextField txtCorreo = new JTextField();
+	    txtCorreo.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtCorreo.setBackground(Color.WHITE);
+	    txtCorreo.setBounds(20, 380, 550, 30);
+	    panelPrincipal.add(txtCorreo);
+
+	    // ── 7. CONTRASEÑA ─────────────────────────────────────────────
+	    JLabel lblContrasena = new JLabel("Contraseña");
+	    lblContrasena.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblContrasena.setForeground(Color.WHITE);
+	    lblContrasena.setBounds(20, 440, 200, 20);
+	    panelPrincipal.add(lblContrasena);
+
+	    JPasswordField txtContrasena = new JPasswordField();
+	    txtContrasena.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtContrasena.setBackground(Color.WHITE);
+	    txtContrasena.setBounds(20, 460, 550, 30);
+	    panelPrincipal.add(txtContrasena);
+
+	    // ── 8. CONFIRMAR CONTRASEÑA ───────────────────────────────────
+	    JLabel lblConfirmar = new JLabel("Confirmar contraseña");
+	    lblConfirmar.setFont(new Font("Arial", Font.ITALIC, 15));
+	    lblConfirmar.setForeground(Color.WHITE);
+	    lblConfirmar.setBounds(20, 510, 250, 20);
+	    panelPrincipal.add(lblConfirmar);
+
+	    JPasswordField txtConfirmar = new JPasswordField();
+	    txtConfirmar.setFont(new Font("Arial", Font.BOLD, 16));
+	    txtConfirmar.setBackground(Color.WHITE);
+	    txtConfirmar.setBounds(20, 530, 550, 30);
+	    panelPrincipal.add(txtConfirmar);
+
+	    // ── 9. BOTÓN REGISTRAR ────────────────────────────────────────
+	    JButton btnRegistrar = new JButton("Registrar");
+	    btnRegistrar.setFont(new Font("Arial", Font.PLAIN, 16));
+	    btnRegistrar.setForeground(Color.WHITE);
+	    btnRegistrar.setBackground(Color.DARK_GRAY);
+	    btnRegistrar.setBorder(new LineBorder(Color.WHITE, 6, false));
+	    btnRegistrar.setFocusPainted(false);
+	    btnRegistrar.setBounds(210, 590, 180, 50);
+	    btnRegistrar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String nombre =lblNombre.getText()+" "+lblApellido.getText();
+				String contraseña =lblContrasena.getText();
+				String correo =lblCorreo.getText();
+				AuthModel x=new AuthModel();
+				x.registro(nombre, correo, contraseña);
+
+				
+			}
+		});
+	    panelPrincipal.add(btnRegistrar);
+
+	    ventana.setVisible(true);
+	    panelPrincipal.setVisible(true);
+	    panelPrincipal.repaint();
+	    panelPrincipal.revalidate();
+	   
+	}
 	
 	public void login() {
 		JFrame ventana=new JFrame();
@@ -173,13 +311,10 @@ public class AuthView {
 		    public void actionPerformed(ActionEvent e) {
 		        String contraseña_ingresada = new String(contraseña.getPassword());
 		        
-		        // 1. Instanciamos el modelo
 		        AuthModel modelo = new AuthModel();
 		        
-		        // 2. Le preguntamos a la base de datos si las credenciales son correctas
 		        boolean accesoConcedido = modelo.acces(username.getText(), contraseña_ingresada);
 
-		        // 3. Validamos la respuesta
 		        if(accesoConcedido) {
 		            contraseña.setBorder(new LineBorder(Color.GREEN, 4));
 		            username.setBorder(new LineBorder(Color.GREEN, 4));
@@ -190,7 +325,7 @@ public class AuthView {
 		                    JOptionPane.INFORMATION_MESSAGE
 		            );
 		             ventana.dispose();
-		             registro(); // Te manda a la siguiente ventana
+		             altaUsuario(); 
 		            
 		        } else {
 		            contraseña.setBorder(new LineBorder(Color.RED, 4));
@@ -199,7 +334,7 @@ public class AuthView {
 		                    null, 
 		                    "Contraseña o usuario incorrectos", 
 		                    "Error", 
-		                    JOptionPane.ERROR_MESSAGE // Cambié esto a ERROR_MESSAGE para que muestre el ícono de error
+		                    JOptionPane.ERROR_MESSAGE 
 		            );
 		        }
 		        
@@ -218,7 +353,7 @@ public class AuthView {
 		no_cuenta.setFont(new  Font("Arial",Font.ROMAN_BASELINE,16));
 		no_cuenta.addActionListener(e->{
 			ventana.dispose();
-			registro();
+			altaUsuario();
 		});
 		contenedor.add(no_cuenta);
 		
@@ -241,252 +376,7 @@ public class AuthView {
 		contenedor.revalidate();
 	}
 	
-	public void registro() {
 
-		JFrame ventana=new JFrame();
-		ventana.setSize(600, 636);
-		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ventana.setLocationRelativeTo(null);
-		ventana.setBackground(Color.WHITE);
-		//this.setMinimumSize(new Dimension(1200,600));
-		//this.setMaximumSize(new Dimension(1200,600));
-		ventana.setTitle("Calculadorass");
-		ventana.setLocation(100,100);
-		ventana.getContentPane().setBackground(Color.LIGHT_GRAY);
-		ventana.setLayout(new BorderLayout());
-	    ImageIcon icono = new ImageIcon("icono.png");
-	    ventana.setIconImage(icono.getImage());
-		
-		//contenedor de registro
-		JPanel register_conteneiner = new JPanel();
-		register_conteneiner.setSize(600,600);
-		register_conteneiner.setLocation(0,0);
-		register_conteneiner.setOpaque(true);
-		register_conteneiner.setBackground(Color.lightGray);
-		register_conteneiner.setLayout(null);
-		ventana.add(register_conteneiner);
-		
-		//biografia
-		JLabel titulo=new JLabel("Biografia");
-		titulo.setSize(250,80);
-		titulo.setBackground(Color.white);
-		titulo.setHorizontalAlignment(JLabel.CENTER);
-		titulo.setBackground(null);
-		titulo.setLocation(170,20);
-		titulo.setOpaque(true);
-		titulo.setFont(new  Font("Arial",Font.ITALIC,40));
-		register_conteneiner.add(titulo);
-		
-		
-		
-		//desplegable colonias
-		JComboBox colonias=new JComboBox();
-		colonias.setSize(550,20);
-		colonias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Camino Real", "Paraiso del Sol","El Pedregal", "Fidepaz", "Puerta Cortés", "Colinas del Sol"}));		
-		colonias.setOpaque(true);
-		colonias.setFont(new  Font("Arial",Font.PLAIN,16));
-		colonias.setLocation(20,455);
-		register_conteneiner.add(colonias);
-
-		
-		//usuario
-		JTextField usuarioT=new JTextField();
-		usuarioT.setSize(550, 30);
-		usuarioT.setLocation(20, 155);
-		usuarioT.setBackground(Color.WHITE);
-		usuarioT.setFont(new  Font("Arial",Font.BOLD,16));
-		usuarioT.setBorder(new LineBorder(Color.BLACK, 1, true));
-		register_conteneiner.add(usuarioT);
-		
-		//nombre de usuario
-		JButton usuarioB= new JButton();
-		usuarioB.setText("Nombre de Usuario");
-		usuarioB.setSize(550, 30);
-		usuarioB.setLocation(20, 115);
-		usuarioB.setBackground(Color.DARK_GRAY);
-		usuarioB.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
-		usuarioB.setBorder(new LineBorder(Color.DARK_GRAY, 0, false));
-		usuarioB.setEnabled(false);
-		register_conteneiner.add(usuarioB);
-		
-
-		
-		//biografia
-		JLabel Biografia=new JLabel("Introduzca su Biografia");
-		Biografia.setSize(500,50);
-		Biografia.setLocation(60,190);
-		Biografia.setBackground(Color.white);
-		Biografia.setHorizontalAlignment(JLabel.CENTER);
-		Biografia.setBackground(null);
-		Biografia.setOpaque(true);
-		Biografia.setFont(new Font("Arial",Font.ITALIC,32));
-		register_conteneiner.add(Biografia);
-
-		
-		//cuadro de texto
-		JTextArea BiografiaT = new JTextArea();
-		BiografiaT.setSize(475,85);
-		BiografiaT.setLocation(60,240);
-		BiografiaT.setFont(new Font("Arial", Font.PLAIN, 13));
-		BiografiaT.setLineWrap(true);   
-		BiografiaT.setBorder(new LineBorder(Color.BLACK, 3, true));
-		BiografiaT.setWrapStyleWord(true);
-		register_conteneiner.add(BiografiaT);
-		
-		/*PREFERENCIAS*/
-		//biografia
-		JLabel Preferencias=new JLabel("Preferencias");
-		Preferencias.setSize(500,50);
-		Preferencias.setLocation(228,320);
-		Preferencias.setBackground(Color.BLACK);
-		Preferencias.setBackground(null);
-		Preferencias.setOpaque(true);
-		Preferencias.setFont(new Font("Arial",Font.ITALIC,22));
-		register_conteneiner.add(Preferencias);
-		
-		//preferencias
-		JCheckBox checkBoxS=new JCheckBox();
-		checkBoxS.setSize(18, 18);
-		checkBoxS.setLocation(20,370);
-		checkBoxS.setBackground(Color.LIGHT_GRAY);
-		register_conteneiner.add(checkBoxS);
-		//text
-		JLabel checkBoxST = new JLabel();
-		checkBoxST.setText("Salado");
-		checkBoxST.setSize(60, 14);
-		checkBoxST.setOpaque(true);
-		checkBoxST.setBackground(null);
-		checkBoxST.setForeground(Color.BLACK);
-		checkBoxST.setLocation(50,370);
-		checkBoxST.setFont(new  Font("Arial",Font.ITALIC,14));
-		register_conteneiner.add(checkBoxST);
-		
-		// CHECKBOX DULCE
-		JCheckBox checkBoxD=new JCheckBox();
-		checkBoxD.setSize(18, 18);
-		checkBoxD.setLocation(250,370);
-		checkBoxD.setBackground(Color.LIGHT_GRAY);
-		register_conteneiner.add(checkBoxD);
-		//text
-		JLabel checkBoxDT = new JLabel();
-		checkBoxDT.setText("Salado");
-		checkBoxDT.setSize(60, 14);
-		checkBoxDT.setOpaque(true);
-		checkBoxDT.setBackground(null);
-		checkBoxDT.setForeground(Color.BLACK);
-		checkBoxDT.setLocation(270,370);
-		checkBoxDT.setFont(new  Font("Arial",Font.ITALIC,14));
-		register_conteneiner.add(checkBoxDT);
-		
-		// CHECKBOX ACIDO
-		JCheckBox checkBoxA=new JCheckBox();
-		checkBoxA.setSize(18, 18);
-		checkBoxA.setLocation(480,370);
-		checkBoxA.setBackground(Color.LIGHT_GRAY);
-		register_conteneiner.add(checkBoxA);
-		//text
-		JLabel checkBoxAT = new JLabel();
-		checkBoxAT.setText("Acido");
-		checkBoxAT.setSize(60, 14);
-		checkBoxAT.setOpaque(true);
-		checkBoxAT.setBackground(null);
-		checkBoxAT.setForeground(Color.BLACK);
-		checkBoxAT.setLocation(500,370);
-		checkBoxAT.setFont(new  Font("Arial",Font.ITALIC,14));
-		register_conteneiner.add(checkBoxAT);
-		
-		
-		
-		ButtonGroup opciones = new ButtonGroup();
-		JRadioButton acepto =new JRadioButton();
-		acepto.setSize(90,16);
-		acepto.setFont(new Font("Arial",Font.ROMAN_BASELINE,16));
-		acepto.setText("Acepto");
-		acepto.setBackground(Color.LIGHT_GRAY);
-		acepto.setLocation(140,430);
-		JRadioButton deniego =new JRadioButton();
-		deniego.setSize(130,16);
-		deniego.setFont(new Font("Arial",Font.ROMAN_BASELINE,16));
-		deniego.setText("No acepto");
-		deniego.setBackground(Color.LIGHT_GRAY);
-		deniego.setLocation(360,430);
-		opciones.add(acepto);
-		opciones.add(deniego);
-        register_conteneiner.add(acepto);
-        register_conteneiner.add(deniego);
-
-        //boton aceptar
-        JButton terminos= new JButton();
-        terminos.setText("Acepto los terminos");
-        terminos.setSize(500, 20);
-        terminos.setBackground(Color.WHITE);
-        terminos.setFont(new Font("Arial",Font.ROMAN_BASELINE,14));
-        terminos.setBorder(new LineBorder(Color.BLACK, 2, true));
-        terminos.setLocation(50,400);
-        register_conteneiner.add(terminos);
-        
-        terminos.addActionListener(new ActionListener() {
-        	@Override
-        	public void actionPerformed(ActionEvent e) {
-        		
-        		acepto.setSelected(true);
-        		
-        	}
-        });
-        
-      //boton aceptar
-  		JButton accederB= new JButton();
-  		accederB.setText("Aceptar");
-  		accederB.setSize(500, 70);
-  		accederB.setBackground(Color.WHITE);
-  		accederB.setFont(new  Font("Arial",Font.ROMAN_BASELINE,22));
-  		accederB.setBorder(new LineBorder(Color.BLACK, 6, true));
-  		accederB.setLocation(50,492);
-  		register_conteneiner.add(accederB);
-  		
-  		accederB.addActionListener(new ActionListener() {
-  			@Override
-  			public void actionPerformed(ActionEvent e) {
-  				String biografia_val =BiografiaT.getText();
-  				int biografia_caracteres =biografia_val.length();
-  				
-  				if(usuarioT.getText().equals("")) {
-  					usuarioT.setBorder(new LineBorder(Color.red, 1, true));
-  				}else {
-  					usuarioT.setBorder(new LineBorder(Color.green, 1, true));
-  				}
-  				
-  				if(biografia_val.equals("")||biografia_caracteres<5) {
-  					BiografiaT.setBorder(new LineBorder(Color.RED, 4));
-  				}else {
-  					BiografiaT.setBorder(new LineBorder(Color.GREEN, 4));
-  					AuthModel x=new AuthModel();
-  					x.registro(usuarioT.getText(), BiografiaT.getText());
-  				}
-  				
-  				if(checkBoxD.isSelected()||checkBoxS.isSelected()||checkBoxA.isSelected()) {
-  				    checkBoxD.setBackground(Color.GREEN);
-  				    checkBoxS.setBackground(Color.GREEN);
-  				    checkBoxA.setBackground(Color.GREEN);
-  				}else{
-  					checkBoxD.setBackground(Color.red);
-  				    checkBoxS.setBackground(Color.red);
-  				    checkBoxA.setBackground(Color.red);
-  				}
-  				
-  				if(acepto.isSelected()) {
-  					terminos.setBorder(new LineBorder(Color.GREEN, 2, true));
-  				}else {
-  					terminos.setBorder(new LineBorder(Color.red, 2, true));
-  				}
-  				
-  			}
-  		});
-      		
-
-        register_conteneiner.repaint();	
-        ventana.setVisible(true);
-	}
 
 }
 

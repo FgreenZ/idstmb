@@ -8,7 +8,6 @@ public class Main {
 		// TODO Auto-generated method stub
 		
 		AuthController miventana=new AuthController();
-		
 		miventana.login();
 		
 	}
