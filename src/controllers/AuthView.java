@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -17,18 +18,35 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
 import models.AuthModel;
 
-public class AuthView {
+public class AuthView extends JFrame{
 	
-	//private AuthModel =new AuthModel();
-
+	/*CONSTRUCTOR*/
+	public  AuthView() {
+		this.setSize(600, 636);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setBackground(Color.WHITE);
+		//this.setMinimumSize(new Dimension(1200,600));
+		//this.setMaximumSize(new Dimension(1200,600));
+		setTitle("Calculadora");
+		setLocation(100,100);
+		getContentPane().setBackground(Color.LIGHT_GRAY);
+		setLayout(new BorderLayout());
+	    ImageIcon icono = new ImageIcon("icono.png");
+	    setIconImage(icono.getImage());
+	}
+	
+	/*VISTAS*/
 	public void altaUsuario() {
-
+		borrar();
 		JFrame ventana=new JFrame();
 		ventana.setSize(600, 710);
 		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -167,27 +185,16 @@ public class AuthView {
 	}
 	
 	public void login() {
-		JFrame ventana=new JFrame();
-		ventana.setSize(600, 636);
-		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ventana.setLocationRelativeTo(null);
-		ventana.setBackground(Color.WHITE);
-		//this.setMinimumSize(new Dimension(1200,600));
-		//this.setMaximumSize(new Dimension(1200,600));
-		ventana.setTitle("Calculadora");
-		ventana.setLocation(100,100);
-		ventana.getContentPane().setBackground(Color.LIGHT_GRAY);
-		ventana.setLayout(new BorderLayout());
-	    ImageIcon icono = new ImageIcon("icono.png");
-	    ventana.setIconImage(icono.getImage());
-		
+
+		borrar();
+
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		contenedor.setBackground(Color.DARK_GRAY);
 		contenedor.setSize(600,636);
 		contenedor.setLocation(0,23);
 		contenedor.setLayout(null);
-		ventana.add(contenedor);
+		this.add(contenedor);
 		
 		JPanel contenedor2 = new JPanel();
 		contenedor2.setOpaque(true);
@@ -195,7 +202,7 @@ public class AuthView {
 		contenedor2.setSize(600,554);
 		contenedor2.setLocation(600,23);
 		contenedor2.setLayout(null);
-		ventana.add(contenedor2);
+		this.add(contenedor2);
 		
 		JLabel icono1 =new JLabel(new ImageIcon("icon.PNG"));
 		icono1.setBounds(100, 102, 350, 180);
@@ -324,8 +331,7 @@ public class AuthView {
 		                    "Inicio de sesion", 
 		                    JOptionPane.INFORMATION_MESSAGE
 		            );
-		             ventana.dispose();
-		             altaUsuario(); 
+		             users(); 
 		            
 		        } else {
 		            contraseña.setBorder(new LineBorder(Color.RED, 4));
@@ -352,7 +358,7 @@ public class AuthView {
 		no_cuenta.setForeground(Color.WHITE);
 		no_cuenta.setFont(new  Font("Arial",Font.ROMAN_BASELINE,16));
 		no_cuenta.addActionListener(e->{
-			ventana.dispose();
+			this.dispose();
 			altaUsuario();
 		});
 		contenedor.add(no_cuenta);
@@ -371,12 +377,72 @@ public class AuthView {
 		contraseñaOlvidada.setFont(new  Font("Arial",Font.ITALIC,13));
 		contenedor.add(contraseñaOlvidada);
 		
-		ventana.setVisible(true);
+		this.setVisible(true);
 		contenedor.repaint();
 		contenedor.revalidate();
 	}
 	
+	public void users() {
+		borrar();
+		setSize(1000, 636);
 
+		JPanel users =new JPanel();
+		users.setSize(1000,500);
+		users.setLocation(100,50);
+		users.setBackground(Color.WHITE);
+		users.setLayout(null);
+		users.setOpaque(true);
+		this.add(users);
+		
+		//titulo
+		JLabel users_title =new JLabel("USUARIOS");
+		users_title.setBounds(400,10,300,20);
+		users_title.setLayout(null);
+		users_title.setOpaque(true);
+		users_title.setBackground(null);
+		users_title.setFont(new  Font("Arial",Font.ITALIC,24));
+		users.add(users_title);
+		
+		/*BOTONES*/
+		JButton export =new JButton("Exportar");
+		export.setBounds(30,120,100,40);
+		users.add(export);
+		
+		JButton add =new JButton("Añadir");
+		add.setBounds(130,120,100,40);
+		users.add(add);
+		
+		/*TABLA*/
+		ArrayList<String[]> table_users =new ArrayList<>();
+		UserController dbUsers =new UserController();
+		table_users=dbUsers.usersData();
+		Object[][] table_content = new Object[table_users.size()][];
+		Object [] table_head= {"id","username","password","nombre completo","correo"};
+        for (int i = 0; i < table_users.size(); i++) {
+        	table_content[i] = table_users.get(i);
+        }
 
+		
+		JTable users_table =new JTable(table_content,table_head);
+		users_table.setSize(800,350);
+		users_table.setLocation(30,175);
+		users.add(users_table);
+		
+		JScrollPane scrollPane =new JScrollPane(users_table);
+		scrollPane.setLocation(30,175);
+		scrollPane.setSize(800,200);
+		users.add(scrollPane);
+		
+		
+		users.repaint();
+	}
+	
+	/*AUXILIARES*/
+	public void borrar() {
+		this.getContentPane().removeAll();
+		this.repaint();
+		this.revalidate();
+	}
+	
 }
 
