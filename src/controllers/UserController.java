@@ -42,5 +42,30 @@ public class UserController {
         }
         return table_users;
     }
+    
+    public boolean addUser(String[] user) {
+    		boolean userAdded=true;
+        String query = "INSERT INTO usuarios (username, password, nombre, correo) VALUES (?, ?, ?, ?)";
+        
+        try (Connection conn = DriverManager.getConnection(url, this.user, pass);
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+                
+        		stmt.setString(1, user[0]);
+        		stmt.setString(2, user[1]);
+        		stmt.setString(3, user[2]);
+        		stmt.setString(4, user[3]);
+        		
+        		stmt.executeUpdate();
+                
+                
+        }catch (Exception e) {
+        		userAdded=false;
+            System.out.println("Error de conexión a la BD: " + e.getMessage());
+            e.printStackTrace();
+        }
+    		
+    	
+    		return userAdded;
+    }
 	
 }

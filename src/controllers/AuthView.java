@@ -2,7 +2,9 @@ package controllers;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -12,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -27,6 +30,8 @@ import javax.swing.border.LineBorder;
 import models.AuthModel;
 
 public class AuthView extends JFrame{
+	
+	JTable users_table;
 	
 	/*CONSTRUCTOR*/
 	public  AuthView() {
@@ -186,8 +191,6 @@ public class AuthView extends JFrame{
 	
 	public void login() {
 
-		borrar();
-
 		JPanel contenedor = new JPanel();
 		contenedor.setOpaque(true);
 		contenedor.setBackground(Color.DARK_GRAY);
@@ -331,6 +334,7 @@ public class AuthView extends JFrame{
 		                    "Inicio de sesion", 
 		                    JOptionPane.INFORMATION_MESSAGE
 		            );
+		             borrar();
 		             users(); 
 		            
 		        } else {
@@ -382,8 +386,7 @@ public class AuthView extends JFrame{
 		contenedor.revalidate();
 	}
 	
-	public void users() {
-		borrar();
+	public void users() {		
 		setSize(1000, 636);
 
 		JPanel users =new JPanel();
@@ -403,19 +406,11 @@ public class AuthView extends JFrame{
 		users_title.setFont(new  Font("Arial",Font.ITALIC,24));
 		users.add(users_title);
 		
-		/*BOTONES*/
-		JButton export =new JButton("Exportar");
-		export.setBounds(30,120,100,40);
-		users.add(export);
-		
-		JButton add =new JButton("Añadir");
-		add.setBounds(130,120,100,40);
-		users.add(add);
-		
 		/*TABLA*/
 		ArrayList<String[]> table_users =new ArrayList<>();
 		UserController dbUsers =new UserController();
 		table_users=dbUsers.usersData();
+		
 		Object[][] table_content = new Object[table_users.size()][];
 		Object [] table_head= {"id","username","password","nombre completo","correo"};
         for (int i = 0; i < table_users.size(); i++) {
@@ -423,18 +418,113 @@ public class AuthView extends JFrame{
         }
 
 		
-		JTable users_table =new JTable(table_content,table_head);
+		users_table =new JTable(table_content,table_head);
 		users_table.setSize(800,350);
 		users_table.setLocation(30,175);
 		users.add(users_table);
+		
 		
 		JScrollPane scrollPane =new JScrollPane(users_table);
 		scrollPane.setLocation(30,175);
 		scrollPane.setSize(800,200);
 		users.add(scrollPane);
 		
+		/*JDialog*/
+		JDialog dialogo = new JDialog(AuthView.this, "Añadir Usuario", true);		
+		dialogo.setSize(350, 450);
+        dialogo.setLocationRelativeTo(AuthView.this);
+
+        // Contenido del diálogo
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setSize(350, 450);
+        JLabel title =new JLabel("Hola, este es un JDialog");
+        title.setSize(200, 40);
+        panel.add(title, BorderLayout.NORTH);
+        
+        
+        JButton botonCerrar = new JButton("Cerrar");
+        JButton botonAñadir = new JButton("Añadir");
+        botonAñadir.setPreferredSize(new Dimension(150,40));
+        botonCerrar.setPreferredSize(new Dimension(150,40));
+
+        botonCerrar.addActionListener(e -> dialogo.dispose());
+        
+        JPanel panelBotones = new JPanel(new BorderLayout());
+        panelBotones.add(botonAñadir,BorderLayout.EAST);
+        panelBotones.add(botonCerrar,BorderLayout.WEST);
+        
+        panel.add(panelBotones,BorderLayout.SOUTH);
+        dialogo.add(panel);
+
+        // Mostrar
+        dialogo.setVisible(false);
+        
+		/*BOTONES*/
+		JButton export =new JButton("Exportar");
+		export.setBounds(30,120,100,40);
+		users.add(export);
 		
+		JButton add =new JButton("Añadir");
+		add.setBounds(130,120,100,40);
+		add.addActionListener(e -> dialogo.setVisible(true));
+		users.add(add);
+		
+		//inputs para el usuario
+        JPanel panelInputs = new JPanel(new GridLayout(5,2));
+        
+        JLabel nombre =new JLabel("Nombre completo: ");
+        JTextField nombret =new JTextField();
+        panelInputs.add(nombre);
+        panelInputs.add(nombret);
+        
+        JLabel usuario =new JLabel("Usuario: ");
+        JTextField usuariot =new JTextField();
+        panelInputs.add(usuario);
+        panelInputs.add(usuariot);
+        
+        JLabel correo =new JLabel("Correo: ");
+        JTextField correot =new JTextField();
+        panelInputs.add(correo);
+        panelInputs.add(correot);
+        
+        JLabel contraseña =new JLabel("Contraseña: ");
+        JTextField contraseñat =new JTextField();
+        panelInputs.add(contraseña);
+        panelInputs.add(contraseñat);
+        
+        JLabel contraseñaC =new JLabel("Confirmar contraseña: ");
+        JTextField contraseñaCt =new JTextField();
+        panelInputs.add(contraseñaC);
+        panelInputs.add(contraseñaCt);
+        panel.add(panelInputs);
+		
+        
+        
+        botonAñadir.addActionListener(e ->{
+            boolean userAdded;
+            
+            String[] userData= new String[4];
+            userData[0]=nombret.getText();
+            userData[1]=usuariot.getText();
+            userData[2]=correot.getText();
+            userData[3]=contraseñat.getText();
+			
+        		userAdded=dbUsers.addUser(userData);
+        		if(userAdded) {
+        			System.out.println("usuarioañádido");
+        			borrar();
+        			this.users();
+        			dialogo.dispose();
+        		}else {
+        			System.out.println("error");
+        		}
+        		
+        });
+
+        users.revalidate();
 		users.repaint();
+		this.revalidate();
+		this.repaint();
 	}
 	
 	/*AUXILIARES*/
