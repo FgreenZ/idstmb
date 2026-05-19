@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class UserController {
 	
 	ArrayList<String[]> table_users =new ArrayList<>();
-    private final String url = "jdbc:mysql://localhost:3306/implementando_mysql";
-    private final String user = "root"; 
-    private final String pass = "793ghjlqASD";
+    private final String url = "jdbc:mysql://sql.freedb.tech:3306/freedb_IYnU3Epp";
+    private final String user = "u_193zl4"; 
+    private final String pass = "DOAuRP7kNKsp";
     
     public ArrayList<String[]> usersData() {
         
